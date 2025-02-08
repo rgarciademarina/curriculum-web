@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raúl García de Marina Maroto - CV</title>
+    <style>
+        :root {
+            --primary-color: #1F4E78;
+            --secondary-color: #2F5496;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calibri', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 2rem;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-left: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .name-title {
+            flex-grow: 1;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.3em;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin: 1rem 0;
+        }
+
+        .contact-info p {
+            margin: 0.3rem 0;
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .experience-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-date {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .experience-item, .skill-category {
+                box-shadow: none;
+                border: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name-title">
+            <h1>RAÚL GARCÍA DE MARINA MAROTO</h1>
+            <div class="subtitle">Senior QA Automation Engineer</div>
+            <div class="contact-info">
+                <p> raulgarciademarina@yahoo.es</p>
+                <p> +034656609539</p>
+                <p> Virgen de las Batallas Street, nº 3, 1ºD</p>
+                <p>13002 Ciudad Real, Spain</p>
+            </div>
+        </div>
+        <img src="RaulGarcia.png" alt="Raúl García de Marina Maroto" class="profile-photo">
+    </div>
+
+    <section>
+        <h2>PROFESSIONAL EXPERIENCE</h2>
+        
+        <div class="experience-item">
+            <div class="experience-title">Senior Automation QA Engineer at Kairos for Inditex</div>
+            <div class="experience-date">December 2021 - Present</div>
+            <ul>
+                <li>Work in Scrum Team, active participation in requirements taking and help developing user stories</li>
+                <li>Manual test case creation for user stories and regression testing</li>
+                <li>Automated testing for backend environment using Karate</li>
+                <li>Performance testing with Jmeter</li>
+                <li>Automated testing for frontend iOS native application using XCUITest</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Senior Automation QA Engineer at Sopra Steria for BBVA</div>
+            <div class="experience-date">April 2019 - December 2021</div>
+            <h3>Do It Yourself team – Glomo (Until October 2020):</h3>
+            <ul>
+                <li>QA Tester in agile Scrum team with TDD methodology</li>
+                <li>Automated and manual test plans creation</li>
+                <li>Test automation using Cucumber, NodeJS and Selenium with BBVA's internal test framework</li>
+            </ul>
+            <h3>Quality Experience team – Glomo (October 2020 - December 2021):</h3>
+            <ul>
+                <li>Framework improvements and maintenance (Node JS, Cucumber, Appium, Selenium)</li>
+                <li>Testing Pull Request Reviews</li>
+                <li>Support for e2e tests creation and troubleshooting</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Testing at Capitole Consulting for Securitas Direct</div>
+            <div class="experience-date">May 2018 - April 2019</div>
+            <ul>
+                <li>Work in Scrum Team, active participation in requirements taking</li>
+                <li>Automated testing with Selenium and Behave using Python</li>
+                <li>Testing centralization using TestLink</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Tester at Zemsania, for Atos (Department of Agriculture)</div>
+            <div class="experience-date">December 2017 - May 2018</div>
+            <ul>
+                <li>Automated testing with Selenium and Cucumber using Java language with Maven</li>
+                <li>Soap Webservice testing with SoapUI</li>
+                <li>Design and execution of manual and automatic test plans</li>
+                <li>Testing centralization using TestLink</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Tester at Alten, for Ria Money Transfer</div>
+            <div class="experience-date">April 2017 - December 2017</div>
+            <ul>
+                <li>Work in Scrum Team, active participation in requirements taking</li>
+                <li>Android and iOS hybrid app development with Ionic technology</li>
+                <li>Elaboration and execution of test plans using BDD (Behaviour Driven Development)</li>
+                <li>Test automation with Selenium, Appium, Specflow using C# for interoperability test on the cloud with Perfecto Mobile</li>
+                <li>Reporting and testing centralization with Microsoft's Team Foundation Server</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Tester at Steelmood, for Carrefour (e-commerce)</div>
+            <div class="experience-date">August 2016 - March 2017</div>
+            <ul>
+                <li>Work in Scrum Team, functional preparation, planning and demonstrations with the final client</li>
+                <li>Elaboration and execution of functional test plans in BDD (Behaviour Driven Development)</li>
+                <li>Testing automation with Selenium, Rest Assured and Cucumber in Java</li>
+                <li>Treatment of defects and Scrum planning with Jira</li>
+                <li>Testing centralization with TestLink</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Tester at T-Systems, for Allianz (bank sector)</div>
+            <div class="experience-date">April 2015 - August 2016</div>
+            <ul>
+                <li>Functional testing, design and execution of test planning and administration with Silk Central</li>
+                <li>Performance testing, design and execution of scripts with LoadRunner</li>
+                <li>Quality of code review with Sonar:
+                    <ul>
+                        <li>Quality of Java and Host modules</li>
+                        <li>Control of unnecessary parameters, loop nesting, recurrent calls to database, etc.</li>
+                    </ul>
+                </li>
+                <li>Security testing, checking web.xml implementation, injection code and validation</li>
+                <li>Security quality testing with appScan and Zap, automated through Jenkins</li>
+                <li>Defect management with Itam</li>
+                <li>Self-Management and task planning with Jira</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Roaming Technician at Alalza</div>
+            <div class="experience-date">January 2015 - April 2015</div>
+            <ul>
+                <li>International Telefonica Global Solution Traffic Incident monitoring and resolution</li>
+                <li>Voice, Data, DIMSI, HUB, LTE Incident management</li>
+                <li>VIP Customer Service</li>
+                <li>Management and revision of IR21s for correct STP configuration</li>
+                <li>Trace inspection to locate network problems</li>
+                <li>Testing with probes to locate and check network failures</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Seller at Urende</div>
+            <div class="experience-date">August 2006 - February 2012</div>
+            <ul>
+                <li>Sale of computers, entertainment electronics and new technologies</li>
+                <li>Sale of telephony and internet services, fixed and mobile</li>
+                <li>Management of documentation for credit through SRS group Santander</li>
+                <li>Organization of transportation routes</li>
+                <li>Implementation of material inputs</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Hardware Technician at Adecom</div>
+            <div class="experience-date">January 2006 - April 2006</div>
+            <ul>
+                <li>Installation of Caja Rural ATMs throughout Ciudad Real province</li>
+                <li>Maintenance of dispensers, recyclers, PR2 printers and computers for Getronics</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Goods Controller at J. García Carrión</div>
+            <div class="experience-date">June 2003 - December 2005</div>
+            <ul>
+                <li>Monitor, handle and repair the Siemens automatic storage system (26,000 pallets capacity)</li>
+                <li>Perform trans-elevators maintenance and cleaning</li>
+                <li>Assist in production line when needed</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Maintenance Technician at Setico S.L. (Scholar)</div>
+            <div class="experience-date">November 2002 - May 2003</div>
+            <ul>
+                <li>Installation and maintenance of office equipment (analog and digital copiers, faxes, printers)</li>
+                <li>Cleaning and tuning of second-hand photocopiers for resale</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Scholar at Diario Lanza</div>
+            <div class="experience-date">July 2002 - October 2002</div>
+            <ul>
+                <li>Layout of newspaper pages</li>
+                <li>Maintenance and updating of Web publishing</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Installation Technician Trainee at Icaldia S.L.</div>
+            <div class="experience-date">April 2002 - July 2002</div>
+            <ul>
+                <li>Installation and maintenance of computer networks</li>
+                <li>Implementation of telephone systems</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-title">Hardware Technician at I.E.S. Torreón del Alcázar</div>
+            <div class="experience-date">November 2001 - April 2002</div>
+            <ul>
+                <li>Implementation, management and maintenance of the institute's computer network</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>EDUCATION AND CERTIFICATIONS</h2>
+        <ul>
+            <li>2024: IA Engineer master (Lidr.co)</li>
+            <li>2021: ISQTB Certified Tester, Foundation Level (CTFL)</li>
+            <li>2016: Selenium WebDriver with Java</li>
+            <li>2015: Web development with Spring MVC/Rest Web Flow y JPA</li>
+            <li>2015: Pattern catalog for Java OpenSource</li>
+            <li>2014: Oracle Certified Professional, Java SE 6 Programmer</li>
+            <li>2000-2002: Degree in Telecommunication Systems and Computers</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>TECHNICAL SKILLS</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <ul>
+                    <li>Java</li>
+                    <li>C#</li>
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>Swift</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Testing</h3>
+                <ul>
+                    <li>Selenium</li>
+                    <li>Cucumber</li>
+                    <li>TestNG</li>
+                    <li>Specflow</li>
+                    <li>Rest Assured</li>
+                    <li>Karate</li>
+                    <li>JMeter</li>
+                    <li>XCUITest</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <ul>
+                    <li>Jira</li>
+                    <li>TestLink</li>
+                    <li>Team Foundation Server</li>
+                    <li>Jenkins</li>
+                    <li>Git</li>
+                    <li>Applitools</li>
+                    <li>Appium</li>
+                    <li>K6</li>
+                    <li>JMeter</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>LANGUAGES</h2>
+        <ul>
+            <li>Spanish: Native</li>
+            <li>English: Professional working proficiency (Written, spoken and technical)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>ADDITIONAL INFORMATION</h2>
+        <ul>
+            <li>B Driving License</li>
+            <li>Available for national and international travel</li>
+        </ul>
+    </section>
+</body>
+</html>

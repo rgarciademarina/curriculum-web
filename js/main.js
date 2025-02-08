@@ -1,0 +1,248 @@
+// Navbar scroll effect
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 70;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '-50px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in');
+                entry.target.style.opacity = '1';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Inicializar las secciones con opacidad pero visible
+    sections.forEach(section => {
+        if (section.id !== 'home') { // No aplicar a la sección home
+            section.style.opacity = '0';
+            observer.observe(section);
+        }
+    });
+
+    // Active navigation highlight
+    const observerNav = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                const id = entry.target.getAttribute('id');
+                const correspondingLink = document.querySelector(`a[href="#${id}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    sections.forEach(section => {
+        observerNav.observe(section);
+    });
+
+    // Modal functionality
+    const modal = document.getElementById('fullscreenModal');
+    const modalImage = modal.querySelector('.modal-image');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalText = modal.querySelector('.modal-text');
+    const modalTags = modal.querySelector('.modal-tags');
+    const closeButton = modal.querySelector('.close-modal');
+    const prevButton = modal.querySelector('.prev-button');
+    const nextButton = modal.querySelector('.next-button');
+    let currentCardIndex = 0;
+    const cards = document.querySelectorAll('.about-card');
+
+    // Función para abrir el modal con una tarjeta específica
+    function openModal(card, index) {
+        currentCardIndex = index;
+        const image = card.querySelector('.about-image');
+        const title = card.querySelector('h3');
+        const textContent = card.querySelector('.about-text p'); // Selecciona solo el párrafo de texto
+        const tags = card.querySelector('.tech-stack');
+
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+        modalTitle.textContent = title.textContent;
+        modalText.innerHTML = textContent.innerHTML;
+        modalTags.innerHTML = tags.innerHTML;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevenir scroll
+        updateNavigationButtons();
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restaurar scroll
+    }
+
+    // Función para actualizar la visibilidad de los botones de navegación
+    function updateNavigationButtons() {
+        prevButton.style.display = currentCardIndex > 0 ? 'flex' : 'none';
+        nextButton.style.display = currentCardIndex < cards.length - 1 ? 'flex' : 'none';
+    }
+
+    // Función para navegar entre tarjetas
+    function navigateModal(direction) {
+        const newIndex = currentCardIndex + direction;
+        if (newIndex >= 0 && newIndex < cards.length) {
+            openModal(cards[newIndex], newIndex);
+        }
+    }
+
+    // Event listeners para las tarjetas
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => openModal(card, index));
+    });
+
+    // Event listener para cerrar el modal
+    closeButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Navegación entre tarjetas
+    prevButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateModal(-1);
+    });
+
+    nextButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateModal(1);
+    });
+
+    // Navegación con teclado
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        
+        switch (e.key) {
+            case 'Escape':
+                closeModal();
+                break;
+            case 'ArrowLeft':
+                navigateModal(-1);
+                break;
+            case 'ArrowRight':
+                navigateModal(1);
+                break;
+        }
+    });
+});
+
+// Image overlay functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const profileImage = document.getElementById('profileImage');
+    const imageOverlay = document.getElementById('imageOverlay');
+    const closeButton = imageOverlay.querySelector('.close-button');
+    const overlayImage = imageOverlay.querySelector('.overlay-image');
+    
+    function openOverlay() {
+        imageOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    function closeOverlay() {
+        imageOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Click events
+    profileImage.addEventListener('click', openOverlay);
+    closeButton.addEventListener('click', closeOverlay);
+    imageOverlay.addEventListener('click', function(e) {
+        if (e.target === imageOverlay) {
+            closeOverlay();
+        }
+    });
+    
+    // Keyboard events
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && imageOverlay.classList.contains('active')) {
+            closeOverlay();
+        }
+    });
+    
+    // Touch events for mobile
+    let touchStartY;
+    imageOverlay.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+    });
+    
+    imageOverlay.addEventListener('touchmove', function(e) {
+        if (!touchStartY) return;
+        
+        const touchEndY = e.touches[0].clientY;
+        const diff = touchStartY - touchEndY;
+        
+        // If user swipes up more than 50px, close the overlay
+        if (Math.abs(diff) > 50) {
+            closeOverlay();
+            touchStartY = null;
+        }
+    });
+    
+    imageOverlay.addEventListener('touchend', function() {
+        touchStartY = null;
+    });
+});
+
+// Show More Experience Button
+document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    const hiddenExperience = document.querySelector('.hidden-experience');
+
+    if (showMoreBtn && hiddenExperience) {
+        showMoreBtn.addEventListener('click', function() {
+            hiddenExperience.classList.toggle('show');
+            this.classList.toggle('active');
+            
+            if (hiddenExperience.classList.contains('show')) {
+                this.innerHTML = 'Ver menos <i class="bi bi-chevron-up"></i>';
+            } else {
+                this.innerHTML = 'Ver más experiencia <i class="bi bi-chevron-down"></i>';
+            }
+
+            // Reiniciar las animaciones AOS para la experiencia oculta
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        });
+    }
+});

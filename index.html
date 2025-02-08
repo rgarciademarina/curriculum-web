@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raúl García de Marina - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark-theme">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">RGM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Formación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Raúl García de Marina</h1>
+                    <h2 class="h3 mb-4 typing-text">Senior QA Automation Engineer</h2>
+                    <div class="tech-badges mb-4">
+                        <span class="badge bg-primary">Selenium</span>
+                        <span class="badge bg-primary">Agile</span>
+                        <span class="badge bg-primary">Python</span>
+                        <span class="badge bg-primary">JavaScript</span>
+                        <span class="badge bg-primary">AI/ML</span>
+                    </div>
+                    <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">
+                        Profesional con más de 24 años de experiencia en el sector tecnológico, especializado en los últimos 8+ años en QA y testing automatizado. 
+                        Mi trayectoria abarca desde roles técnicos hasta la transformación de la calidad del software a través de la automatización inteligente y la innovación continua.
+                    </p>
+                    <div class="cta-buttons mb-4 animate__animated animate__fadeIn animate__delay-1s">
+                        <a href="cv/CV_Raul_Garcia_de_Marina.pdf" class="btn btn-primary me-3" download>
+                            <i class="bi bi-download"></i> Descargar CV
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light">
+                            <i class="bi bi-envelope"></i> Contactar
+                        </a>
+                    </div>
+                    <div class="social-links animate__animated animate__fadeIn animate__delay-2s">
+                        <a href="https://github.com/rgarciademarina" target="_blank" class="btn btn-outline-light me-2">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/raúl-garcía-de-marina-maroto-38334153" target="_blank" class="btn btn-outline-light">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 mt-4 mt-lg-0 animate__animated animate__fadeInRight">
+                    <div class="hero-image-container text-center">
+                        <img src="images/profile.jpg" alt="Raúl García de Marina" class="hero-image" id="profileImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Overlay -->
+    <div id="imageOverlay" class="image-overlay">
+        <button class="close-button">
+            <i class="bi bi-x"></i>
+        </button>
+        <div class="overlay-image-container">
+            <img src="images/profile.jpg" alt="Raúl García de Marina" class="overlay-image">
+        </div>
+    </div>
+
+    <!-- Secciones adicionales -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Sobre Mí</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Innovación y Tecnología</h3>
+                    <img src="images/Coco y yo trabajando.jpg" alt="Trabajando con tecnología" class="about-image">
+                    <div class="about-text">
+                        <p>Como <span class="about-highlight">Ingeniero QA Senior especializado en Automatización</span>, combino mi pasión por la tecnología con un compromiso inquebrantable por la calidad del software. Mi reciente inmersión en el campo de la <span class="about-highlight">Inteligencia Artificial</span> a través de mi máster me ha permitido expandir mis horizontes y aplicar estas tecnologías emergentes en la mejora de procesos de testing.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Automatización</span>
+                            <span class="tech-tag">IA</span>
+                            <span class="tech-tag">Testing Avanzado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>Aprendizaje Continuo</h3>
+                    <img src="images/Madrid Navidad.jpg" alt="Desarrollo profesional" class="about-image">
+                    <div class="about-text">
+                        <p>En un campo tan dinámico como el desarrollo de software, creo firmemente en la importancia del <span class="about-highlight">aprendizaje continuo</span>. Mi experiencia con realidad virtual y tecnologías emergentes no solo refleja mi curiosidad tecnológica, sino también mi capacidad para adaptarme y evolucionar con la industria.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Nuevas Tecnologías</span>
+                            <span class="tech-tag">VR/AR</span>
+                            <span class="tech-tag">Innovación</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>Balance y Valores</h3>
+                    <img src="images/Isis y Coco echandose la siesta conmigo.jpg" alt="Momento personal" class="about-image">
+                    <div class="about-text">
+                        <p>Más allá del código, soy un defensor del <span class="about-highlight">equilibrio trabajo-vida</span> y el respeto por nuestro entorno. Mi amor por los animales y la naturaleza, reflejado en la vida con mis dos gatos, me aporta una perspectiva única en la resolución de problemas y el trabajo en equipo.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Trabajo en Equipo</span>
+                            <span class="tech-tag">Empatía</span>
+                            <span class="tech-tag">Responsabilidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>Espíritu Explorador</h3>
+                    <img src="images/Agarrado a un molino.jpg" alt="Explorando lugares históricos" class="about-image">
+                    <div class="about-text">
+                        <p>Mi fascinación por explorar lugares históricos refleja mi <span class="about-highlight">curiosidad innata y deseo de aprender</span>. Esta misma pasión por descubrir me impulsa en mi carrera profesional, donde cada proyecto es una oportunidad para explorar nuevas tecnologías y metodologías.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Curiosidad</span>
+                            <span class="tech-tag">Exploración</span>
+                            <span class="tech-tag">Adaptabilidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>Nuevos Horizontes</h3>
+                    <img src="images/Yo en barco en Portugal.jpg" alt="Explorando nuevos horizontes" class="about-image">
+                    <div class="about-text">
+                        <p>Como la navegación hacia nuevos horizontes, mi trayectoria profesional está marcada por la <span class="about-highlight">búsqueda constante de crecimiento y evolución</span>. Cada proyecto es una oportunidad para expandir fronteras y descubrir nuevas formas de aportar valor a través de la innovación en QA.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Innovación</span>
+                            <span class="tech-tag">Crecimiento</span>
+                            <span class="tech-tag">Visión</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>Valores y Lealtad</h3>
+                    <img src="images/Coco e Isis esperan su comida.jpg" alt="Isis y Coco, ejemplo de lealtad" class="about-image">
+                    <div class="about-text">
+                        <p>La relación con mis gatos me ha enseñado valiosas lecciones sobre <span class="about-highlight">lealtad, simplicidad y autenticidad</span>. Estos valores se reflejan en mi ética profesional, donde priorizo la honestidad en las relaciones laborales y la búsqueda de soluciones efectivas sin complicaciones innecesarias.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Lealtad</span>
+                            <span class="tech-tag">Simplicidad</span>
+                            <span class="tech-tag">Autenticidad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Experiencia Profesional</h2>
+            
+            <!-- Timeline -->
+            <div class="timeline">
+                <!-- Kairos -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - Presente</div>
+                        <h4 class="timeline-title">Senior Automation QA Engineer</h4>
+                        <h5 class="timeline-company">Kairos for Inditex</h5>
+                        <div class="timeline-tech-stack">
+                            <span class="tech-badge">Karate</span>
+                            <span class="tech-badge">JMeter</span>
+                            <span class="tech-badge">XCUITest</span>
+                            <span class="tech-badge">Scrum</span>
+                            <span class="tech-badge">iOS Testing</span>
+                        </div>
+                        <ul class="timeline-achievements">
+                            <li>Desarrollo de historias de usuario y toma de requisitos en equipo Scrum</li>
+                            <li>Automatización de pruebas frontend para iOS usando XCUITest</li>
+                            <li>Pruebas automatizadas de backend con Karate</li>
+                            <li>Testing de rendimiento utilizando JMeter</li>
+                            <li>Creación de casos de prueba manuales para historias de usuario y pruebas de regresión</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sopra Steria -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2021</div>
+                        <h4 class="timeline-title">Senior Automation QA Engineer</h4>
+                        <h5 class="timeline-company">Sopra Steria for BBVA</h5>
+                        <div class="timeline-tech-stack">
+                            <span class="tech-badge">Cucumber</span>
+                            <span class="tech-badge">NodeJS</span>
+                            <span class="tech-badge">Selenium</span>
+                            <span class="tech-badge">Appium</span>
+                            <span class="tech-badge">TDD</span>
+                        </div>
+                        <div class="timeline-roles">
+                            <div class="role">
+                                <h6>Quality Experience Team (2020-2021)</h6>
+                                <ul>
+                                    <li>Mantenimiento y mejoras del framework (Node.js, Cucumber, Appium)</li>
+                                    <li>Revisión de Pull Requests de pruebas</li>
+                                    <li>Soporte para creación y resolución de problemas en pruebas e2e</li>
+                                </ul>
+                            </div>
+                            <div class="role">
+                                <h6>Do It Yourself Team (2019-2020)</h6>
+                                <ul>
+                                    <li>QA Tester en equipo Scrum con TDD</li>
+                                    <li>Automatización con Cucumber y Selenium</li>
+                                    <li>Creación de planes de prueba</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capitole -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - 2019</div>
+                        <h4 class="timeline-title">Testing Engineer</h4>
+                        <h5 class="timeline-company">Capitole Consulting for Securitas Direct</h5>
+                        <div class="timeline-tech-stack">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Selenium</span>
+                            <span class="tech-badge">TestNG</span>
+                            <span class="tech-badge">Maven</span>
+                        </div>
+                        <ul class="timeline-achievements">
+                            <li>Creación y mantenimiento de framework de automatización</li>
+                            <li>Testing de integración de sistemas</li>
+                            <li>Control de calidad y documentación de pruebas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- T-Systems -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2015 - 2016</div>
+                        <h4 class="timeline-title">QA Tester</h4>
+                        <h5 class="timeline-company">T-Systems for Allianz</h5>
+                        <div class="timeline-tech-stack">
+                            <span class="tech-badge">Silk Central</span>
+                            <span class="tech-badge">Test Planning</span>
+                            <span class="tech-badge">Functional Testing</span>
+                        </div>
+                        <ul class="timeline-achievements">
+                            <li>Testing funcional y diseño de planes de prueba</li>
+                            <li>Administración de pruebas con Silk Central</li>
+                            <li>Elaboración de documentación técnica y reportes de pruebas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Show More Button -->
+                <div class="show-more-container">
+                    <button class="show-more-btn">
+                        Ver más experiencia
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                </div>
+
+                <!-- Hidden Experience -->
+                <div class="hidden-experience">
+                    <!-- Zemsania -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Diciembre 2017 - Mayo 2018</div>
+                            <h4 class="timeline-title">Testing Engineer</h4>
+                            <h5 class="timeline-company">Zemsania for Atos (Departamento de Agricultura)</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">Selenium</span>
+                                <span class="tech-badge">Cucumber</span>
+                                <span class="tech-badge">SoapUI</span>
+                                <span class="tech-badge">Maven</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Automatización de pruebas con Selenium y Cucumber usando Java con Maven</li>
+                                <li>Testing de servicios web SOAP con SoapUI</li>
+                                <li>Diseño y ejecución de planes de prueba manuales y automáticos</li>
+                                <li>Centralización de pruebas usando TestLink</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Alten -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Abril 2017 - Diciembre 2017</div>
+                            <h4 class="timeline-title">QA Engineer</h4>
+                            <h5 class="timeline-company">Alten for Ria Money Transfer</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">C#</span>
+                                <span class="tech-badge">Selenium</span>
+                                <span class="tech-badge">Appium</span>
+                                <span class="tech-badge">Specflow</span>
+                                <span class="tech-badge">Ionic</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Desarrollo de aplicaciones híbridas Android e iOS con Ionic</li>
+                                <li>Elaboración de planes de prueba usando BDD</li>
+                                <li>Automatización con Selenium, Appium y Specflow en C#</li>
+                                <li>Pruebas en la nube con Perfecto Mobile</li>
+                                <li>Gestión de pruebas con TFS</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Steelmood -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Agosto 2016 - Marzo 2017</div>
+                            <h4 class="timeline-title">QA Engineer</h4>
+                            <h5 class="timeline-company">Steelmood for Carrefour</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">Selenium</span>
+                                <span class="tech-badge">Rest Assured</span>
+                                <span class="tech-badge">Cucumber</span>
+                                <span class="tech-badge">Jira</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Testing de plataforma e-commerce</li>
+                                <li>Elaboración y ejecución de planes de prueba en BDD</li>
+                                <li>Automatización con Selenium, Rest Assured y Cucumber en Java</li>
+                                <li>Gestión de defectos y planificación Scrum con Jira</li>
+                                <li>Centralización de pruebas con TestLink</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Alalza -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Enero 2015 - Abril 2015</div>
+                            <h4 class="timeline-title">Técnico de Roaming</h4>
+                            <h5 class="timeline-company">Alalza</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Roaming</span>
+                                <span class="tech-badge">VoIP</span>
+                                <span class="tech-badge">LTE</span>
+                                <span class="tech-badge">Network</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Monitorización y resolución de incidencias de tráfico internacional de Telefónica Global Solution</li>
+                                <li>Gestión de incidencias de Voz, Datos, DIMSI, HUB, LTE</li>
+                                <li>Servicio a clientes VIP</li>
+                                <li>Gestión y revisión de IR21s para configuración correcta de STP</li>
+                                <li>Inspección de trazas para localizar problemas de red</li>
+                                <li>Testing con sondas para localizar y verificar fallos de red</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Urende -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Agosto 2006 - Febrero 2012</div>
+                            <h4 class="timeline-title">Vendedor</h4>
+                            <h5 class="timeline-company">Urende</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Ventas</span>
+                                <span class="tech-badge">Tecnología</span>
+                                <span class="tech-badge">Gestión</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Venta de ordenadores, electrónica de consumo y nuevas tecnologías</li>
+                                <li>Venta de servicios de telefonía e internet, fijos y móviles</li>
+                                <li>Gestión de documentación para créditos a través de SRS grupo Santander</li>
+                                <li>Organización de rutas de transporte</li>
+                                <li>Implementación de entradas de material</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Adecom -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Enero 2006 - Abril 2006</div>
+                            <h4 class="timeline-title">Técnico de Hardware</h4>
+                            <h5 class="timeline-company">Adecom</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Hardware</span>
+                                <span class="tech-badge">ATMs</span>
+                                <span class="tech-badge">Mantenimiento</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Instalación de cajeros automáticos de Caja Rural en toda la provincia de Ciudad Real</li>
+                                <li>Mantenimiento de dispensadores, recicladores, impresoras PR2 y ordenadores para Getronics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- J. García Carrión -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Junio 2003 - Diciembre 2005</div>
+                            <h4 class="timeline-title">Controlador de Mercancías</h4>
+                            <h5 class="timeline-company">J. García Carrión</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Siemens</span>
+                                <span class="tech-badge">Automatización</span>
+                                <span class="tech-badge">Mantenimiento</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Monitorización, manejo y reparación del sistema de almacenamiento automático Siemens (26.000 pallets)
+                                </li>
+                                <li>Mantenimiento y limpieza de transelevadores</li>
+                                <li>Apoyo en línea de producción cuando era necesario</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Setico -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Noviembre 2002 - Mayo 2003</div>
+                            <h4 class="timeline-title">Técnico de Mantenimiento (Becario)</h4>
+                            <h5 class="timeline-company">Setico S.L.</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Hardware</span>
+                                <span class="tech-badge">Mantenimiento</span>
+                                <span class="tech-badge">Reparación</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Instalación y mantenimiento de equipos de oficina (fotocopiadoras analógicas y digitales, faxes,
+                                    impresoras)</li>
+                                <li>Limpieza y puesta a punto de fotocopiadoras de segunda mano para reventa</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Diario Lanza -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Julio 2002 - Octubre 2002</div>
+                            <h4 class="timeline-title">Becario</h4>
+                            <h5 class="timeline-company">Diario Lanza</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Maquetación</span>
+                                <span class="tech-badge">Web</span>
+                                <span class="tech-badge">Publicación</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Maquetación de páginas del periódico</li>
+                                <li>Mantenimiento y actualización de la publicación Web</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Icaldia -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Abril 2002 - Julio 2002</div>
+                            <h4 class="timeline-title">Técnico de Instalaciones en Prácticas</h4>
+                            <h5 class="timeline-company">Icaldia S.L.</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Redes</span>
+                                <span class="tech-badge">Telefonía</span>
+                                <span class="tech-badge">Instalación</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Instalación y mantenimiento de redes informáticas</li>
+                                <li>Implementación de sistemas telefónicos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- I.E.S. Torreón del Alcázar -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Noviembre 2001 - Abril 2002</div>
+                            <h4 class="timeline-title">Técnico de Hardware</h4>
+                            <h5 class="timeline-company">I.E.S. Torreón del Alcázar</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge">Redes</span>
+                                <span class="tech-badge">Hardware</span>
+                                <span class="tech-badge">Mantenimiento</span>
+                            </div>
+                            <ul class="timeline-achievements">
+                                <li>Implementación, gestión y mantenimiento de la red informática del instituto</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Project -->
+            <div class="featured-project mt-5" data-aos="fade-up">
+                <h3 class="text-center mb-4">Proyecto Destacado</h3>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="project-video">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Mcg4IpySRsc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-info">
+                            <h4>Asistente de Historias de Usuario con IA</h4>
+                            <p class="project-description">
+                                Desarrollo de una herramienta innovadora que utiliza Inteligencia Artificial para asistir en la creación y mejora de historias de usuario, facilitando el proceso de desarrollo ágil.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/rgarciademarina/user-story-assistant" target="_blank" class="btn btn-outline-primary me-2">
+                                    <i class="bi bi-github"></i> Ver Código
+                                </a>
+                                <a href="https://html-preview.github.io/?url=https://github.com/rgarciademarina/AI4Devs-videogame-rgm/blob/main/minotaur-maze-rgm/index.html" target="_blank" class="btn btn-outline-primary">
+                                    <i class="bi bi-joystick"></i> Jugar Minotaur Maze
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Overview -->
+            <div class="skills-overview mt-5">
+                <h3 class="text-center mb-4">Especialidades</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h5><i class="bi bi-gear"></i> Automatización</h5>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">Cucumber</span>
+                            <span class="skill-tag">Karate</span>
+                            <span class="skill-tag">JMeter</span>
+                            <span class="skill-tag">XCUITest</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h5><i class="bi bi-code-slash"></i> Lenguajes</h5>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">NodeJS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h5><i class="bi bi-brain"></i> Innovación</h5>
+                        <div class="skill-tags">
+                            <span class="skill-tag">IA</span>
+                            <span class="skill-tag">Chatbots</span>
+                            <span class="skill-tag">LLMs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Formación</h2>
+            
+            <!-- Educación Formal -->
+            <div class="education-category mb-5" data-aos="fade-up">
+                <h3 class="category-title">Educación Formal</h3>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="education-content">
+                            <div class="education-year">2024</div>
+                            <h4 class="education-title">Máster en Ingeniería de IA</h4>
+                            <h5 class="education-institution">Lidr.co</h5>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Inteligencia Artificial</span>
+                                <span class="tech-badge">Machine Learning</span>
+                                <span class="tech-badge">Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-content">
+                            <div class="education-year">2000-2002</div>
+                            <h4 class="education-title">Grado en Sistemas de Telecomunicación y Computadores</h4>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Telecomunicaciones</span>
+                                <span class="tech-badge">Sistemas</span>
+                                <span class="tech-badge">Computación</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificaciones Profesionales -->
+            <div class="education-category mb-5" data-aos="fade-up">
+                <h3 class="category-title">Certificaciones Profesionales</h3>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="education-content">
+                            <div class="education-year">2021</div>
+                            <h4 class="education-title">ISTQB Certified Tester</h4>
+                            <h5 class="education-institution">Foundation Level (CTFL)</h5>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Testing</span>
+                                <span class="tech-badge">QA</span>
+                                <span class="tech-badge">ISTQB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-content">
+                            <div class="education-year">2014</div>
+                            <h4 class="education-title">Oracle Certified Professional</h4>
+                            <h5 class="education-institution">Java SE 6 Programmer</h5>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">OCP</span>
+                                <span class="tech-badge">Oracle</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formación Especializada -->
+            <div class="education-category mb-5" data-aos="fade-up">
+                <h3 class="category-title">Formación Especializada</h3>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="education-content">
+                            <div class="education-year">2016</div>
+                            <h4 class="education-title">Selenium WebDriver con Java</h4>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Selenium</span>
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">Automatización</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-content">
+                            <div class="education-year">2015</div>
+                            <h4 class="education-title">Desarrollo Web con Spring MVC/Rest</h4>
+                            <h5 class="education-institution">Web Flow y JPA</h5>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Spring</span>
+                                <span class="tech-badge">REST</span>
+                                <span class="tech-badge">JPA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-content">
+                            <div class="education-year">2015</div>
+                            <h4 class="education-title">Catálogo de Patrones Java OpenSource</h4>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Java</span>
+                                <span class="tech-badge">Patrones</span>
+                                <span class="tech-badge">OpenSource</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Contacto</h2>
+            
+            <div class="row">
+                <!-- Información de Contacto -->
+                <div class="col-md-6 mb-4" data-aos="fade-right">
+                    <div class="contact-info-card">
+                        <h3>Información de Contacto</h3>
+                        <div class="contact-items">
+                            <div class="contact-item" id="emailContainer">
+                                <i class="bi bi-envelope"></i>
+                                <span class="contact-text">Cargando...</span>
+                                <button class="copy-btn" data-tooltip="Copiar email">
+                                    <i class="bi bi-clipboard"></i>
+                                </button>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/raúl-garcía-de-marina-maroto-38334153" target="_blank" class="contact-text">
+                                    LinkedIn
+                                </a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-github"></i>
+                                <a href="https://github.com/rgarciademarina" target="_blank" class="contact-text">
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- QR Code -->
+                        <div class="qr-container mt-4">
+                            <h4>Escanea mi tarjeta de contacto</h4>
+                            <div id="qrcode"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="contact-form-card">
+                        <h3>Envíame un mensaje</h3>
+                        <form id="contactForm" action="https://formspree.io/f/mjkgoanq" method="POST">
+                            <!-- Honeypot field -->
+                            <input type="text" name="_gotcha" style="display:none">
+                            
+                            <div class="form-group mb-3">
+                                <label for="name">Nombre *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="email">Email *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="company">Empresa</label>
+                                <input type="text" class="form-control" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="subject">Asunto *</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="message">Mensaje *</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="verification">Verificación: ¿Cuánto es 2 + 3? *</label>
+                                <input type="number" class="form-control" id="verification" name="verification" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Enviar Mensaje
+                                <i class="bi bi-send ms-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Raúl García de Marina. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de imagen a pantalla completa -->
+    <div id="fullscreenModal" class="fullscreen-modal">
+        <button class="close-modal">&times;</button>
+        <button class="nav-button prev-button">&lt;</button>
+        <button class="nav-button next-button">&gt;</button>
+        <div class="modal-content">
+            <img src="" alt="" class="modal-image">
+            <div class="modal-info">
+                <h3 class="modal-title"></h3>
+                <div class="modal-text"></div>
+                <div class="modal-tags tech-stack"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
