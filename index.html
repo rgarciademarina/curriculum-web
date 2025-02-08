@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/i18n.js" defer></script>
 </head>
 <body class="dark-theme">
     <!-- Navbar -->
@@ -20,11 +21,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experiencia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Formación</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home" data-i18n="nav.home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience" data-i18n="nav.experience">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education" data-i18n="nav.education">Formación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contacto</a></li>
+                    <li class="nav-item ms-2">
+                        <div class="language-selector">
+                            <button class="btn btn-outline-light btn-sm" id="langToggle">
+                                <i class="bi bi-translate"></i> EN
+                            </button>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -36,7 +44,7 @@
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
                     <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Raúl García de Marina</h1>
-                    <h2 class="h3 mb-4 typing-text">Senior QA Automation Engineer</h2>
+                    <h2 class="h3 mb-4 typing-text" data-i18n="hero.title">Senior QA Automation Engineer</h2>
                     <div class="tech-badges mb-4">
                         <span class="badge bg-primary">Selenium</span>
                         <span class="badge bg-primary">Agile</span>
@@ -44,16 +52,16 @@
                         <span class="badge bg-primary">JavaScript</span>
                         <span class="badge bg-primary">AI/ML</span>
                     </div>
-                    <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">
+                    <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s" data-i18n="hero.description">
                         Profesional con más de 24 años de experiencia en el sector tecnológico, especializado en los últimos 8+ años en QA y testing automatizado. 
                         Mi trayectoria abarca desde roles técnicos hasta la transformación de la calidad del software a través de la automatización inteligente y la innovación continua.
                     </p>
                     <div class="cta-buttons mb-4 animate__animated animate__fadeIn animate__delay-1s">
                         <a href="cv/CV_Raul_Garcia_de_Marina.pdf" class="btn btn-primary me-3" download>
-                            <i class="bi bi-download"></i> Descargar CV
+                            <i class="bi bi-download"></i> <span data-i18n="hero.downloadCV">Descargar CV</span>
                         </a>
                         <a href="#contact" class="btn btn-outline-light">
-                            <i class="bi bi-envelope"></i> Contactar
+                            <i class="bi bi-envelope"></i> <span data-i18n="hero.contact">Contactar</span>
                         </a>
                     </div>
                     <div class="social-links animate__animated animate__fadeIn animate__delay-2s">
@@ -83,86 +91,106 @@
             <img src="images/profile.jpg" alt="Raúl García de Marina" class="overlay-image">
         </div>
     </div>
+    <!-- Modal for About Cards -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" alt="" class="modal-image">
+                <h3 class="modal-title"></h3>
+                <div class="modal-text"></div>
+                <div class="modal-tags"></div>
+            </div>
+            <button class="close-modal">
+                <i class="bi bi-x"></i>
+            </button>
+            <button class="nav-button prev-button">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="nav-button next-button">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+    </div>
 
     <!-- Secciones adicionales -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="text-center mb-5">Sobre Mí</h2>
+            <h2 class="text-center mb-5" data-i18n="about.title">Sobre Mí</h2>
             <div class="about-grid">
                 <div class="about-card">
-                    <h3>Innovación y Tecnología</h3>
+                    <h3 data-i18n="about.innovation.title">Innovación y Tecnología</h3>
                     <img src="images/Coco y yo trabajando.jpg" alt="Trabajando con tecnología" class="about-image">
                     <div class="about-text">
-                        <p>Como <span class="about-highlight">Ingeniero QA Senior especializado en Automatización</span>, combino mi pasión por la tecnología con un compromiso inquebrantable por la calidad del software. Mi reciente inmersión en el campo de la <span class="about-highlight">Inteligencia Artificial</span> a través de mi máster me ha permitido expandir mis horizontes y aplicar estas tecnologías emergentes en la mejora de procesos de testing.</p>
+                        <p data-i18n="about.innovation.description">Como <span class="about-highlight">Ingeniero QA Senior especializado en Automatización</span>, combino mi pasión por la tecnología con un compromiso inquebrantable por la calidad del software. Mi reciente inmersión en el campo de la <span class="about-highlight">Inteligencia Artificial</span> a través de mi máster me ha permitido expandir mis horizontes y aplicar estas tecnologías emergentes en la mejora de procesos de testing.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Automatización</span>
-                            <span class="tech-tag">IA</span>
-                            <span class="tech-tag">Testing Avanzado</span>
+                            <span class="tech-badge">Automatización</span>
+                            <span class="tech-badge">IA</span>
+                            <span class="tech-badge">Testing Avanzado</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-card">
-                    <h3>Aprendizaje Continuo</h3>
+                    <h3 data-i18n="about.learning.title">Aprendizaje Continuo</h3>
                     <img src="images/Madrid Navidad.jpg" alt="Desarrollo profesional" class="about-image">
                     <div class="about-text">
-                        <p>En un campo tan dinámico como el desarrollo de software, creo firmemente en la importancia del <span class="about-highlight">aprendizaje continuo</span>. Mi experiencia con realidad virtual y tecnologías emergentes no solo refleja mi curiosidad tecnológica, sino también mi capacidad para adaptarme y evolucionar con la industria.</p>
+                        <p data-i18n="about.learning.description">En un campo tan dinámico como el desarrollo de software, creo firmemente en la importancia del <span class="about-highlight">aprendizaje continuo</span>. Mi experiencia con realidad virtual y tecnologías emergentes no solo refleja mi curiosidad tecnológica, sino también mi capacidad para adaptarme y evolucionar con la industria.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Nuevas Tecnologías</span>
-                            <span class="tech-tag">VR/AR</span>
-                            <span class="tech-tag">Innovación</span>
+                            <span class="tech-badge">Nuevas Tecnologías</span>
+                            <span class="tech-badge">VR/AR</span>
+                            <span class="tech-badge">Innovación</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-card">
-                    <h3>Balance y Valores</h3>
+                    <h3 data-i18n="about.balance.title">Balance y Valores</h3>
                     <img src="images/Isis y Coco echandose la siesta conmigo.jpg" alt="Momento personal" class="about-image">
                     <div class="about-text">
-                        <p>Más allá del código, soy un defensor del <span class="about-highlight">equilibrio trabajo-vida</span> y el respeto por nuestro entorno. Mi amor por los animales y la naturaleza, reflejado en la vida con mis dos gatos, me aporta una perspectiva única en la resolución de problemas y el trabajo en equipo.</p>
+                        <p data-i18n="about.balance.description">Más allá del código, soy un defensor del <span class="about-highlight">equilibrio trabajo-vida</span> y el respeto por nuestro entorno. Mi amor por los animales y la naturaleza, reflejado en la vida con mis dos gatos, me aporta una perspectiva única en la resolución de problemas y el trabajo en equipo.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Trabajo en Equipo</span>
-                            <span class="tech-tag">Empatía</span>
-                            <span class="tech-tag">Responsabilidad</span>
+                            <span class="tech-badge">Trabajo en Equipo</span>
+                            <span class="tech-badge">Empatía</span>
+                            <span class="tech-badge">Responsabilidad</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-card">
-                    <h3>Espíritu Explorador</h3>
+                    <h3 data-i18n="about.explorer.title">Espíritu Explorador</h3>
                     <img src="images/Agarrado a un molino.jpg" alt="Explorando lugares históricos" class="about-image">
                     <div class="about-text">
-                        <p>Mi fascinación por explorar lugares históricos refleja mi <span class="about-highlight">curiosidad innata y deseo de aprender</span>. Esta misma pasión por descubrir me impulsa en mi carrera profesional, donde cada proyecto es una oportunidad para explorar nuevas tecnologías y metodologías.</p>
+                        <p data-i18n="about.explorer.description">Mi fascinación por explorar lugares históricos refleja mi <span class="about-highlight">curiosidad innata y deseo de aprender</span>. Esta misma pasión por descubrir me impulsa en mi carrera profesional, donde cada proyecto es una oportunidad para explorar nuevas tecnologías y metodologías.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Curiosidad</span>
-                            <span class="tech-tag">Exploración</span>
-                            <span class="tech-tag">Adaptabilidad</span>
+                            <span class="tech-badge">Curiosidad</span>
+                            <span class="tech-badge">Exploración</span>
+                            <span class="tech-badge">Adaptabilidad</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-card">
-                    <h3>Nuevos Horizontes</h3>
+                    <h3 data-i18n="about.horizons.title">Nuevos Horizontes</h3>
                     <img src="images/Yo en barco en Portugal.jpg" alt="Explorando nuevos horizontes" class="about-image">
                     <div class="about-text">
-                        <p>Como la navegación hacia nuevos horizontes, mi trayectoria profesional está marcada por la <span class="about-highlight">búsqueda constante de crecimiento y evolución</span>. Cada proyecto es una oportunidad para expandir fronteras y descubrir nuevas formas de aportar valor a través de la innovación en QA.</p>
+                        <p data-i18n="about.horizons.description">Como la navegación hacia nuevos horizontes, mi trayectoria profesional está marcada por la <span class="about-highlight">búsqueda constante de crecimiento y evolución</span>. Cada proyecto es una oportunidad para expandir fronteras y descubrir nuevas formas de aportar valor a través de la innovación en QA.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Innovación</span>
-                            <span class="tech-tag">Crecimiento</span>
-                            <span class="tech-tag">Visión</span>
+                            <span class="tech-badge">Innovación</span>
+                            <span class="tech-badge">Crecimiento</span>
+                            <span class="tech-badge">Visión</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-card">
-                    <h3>Valores y Lealtad</h3>
+                    <h3 data-i18n="about.values.title">Valores y Lealtad</h3>
                     <img src="images/Coco e Isis esperan su comida.jpg" alt="Isis y Coco, ejemplo de lealtad" class="about-image">
                     <div class="about-text">
-                        <p>La relación con mis gatos me ha enseñado valiosas lecciones sobre <span class="about-highlight">lealtad, simplicidad y autenticidad</span>. Estos valores se reflejan en mi ética profesional, donde priorizo la honestidad en las relaciones laborales y la búsqueda de soluciones efectivas sin complicaciones innecesarias.</p>
+                        <p data-i18n="about.values.description">La relación con mis gatos me ha enseñado valiosas lecciones sobre <span class="about-highlight">lealtad, simplicidad y autenticidad</span>. Estos valores se reflejan en mi ética profesional, donde priorizo la honestidad en las relaciones laborales y la búsqueda de soluciones efectivas sin complicaciones innecesarias.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Lealtad</span>
-                            <span class="tech-tag">Simplicidad</span>
-                            <span class="tech-tag">Autenticidad</span>
+                            <span class="tech-badge">Lealtad</span>
+                            <span class="tech-badge">Simplicidad</span>
+                            <span class="tech-badge">Autenticidad</span>
                         </div>
                     </div>
                 </div>
@@ -172,15 +200,15 @@
 
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="text-center mb-5">Experiencia Profesional</h2>
+            <h2 class="text-center mb-5" data-i18n="experience.title">Experiencia Profesional</h2>
             
             <!-- Timeline -->
             <div class="timeline">
                 <!-- Kairos -->
                 <div class="timeline-item" data-aos="fade-left">
                     <div class="timeline-content">
-                        <div class="timeline-date">2021 - Presente</div>
-                        <h4 class="timeline-title">Senior Automation QA Engineer</h4>
+                        <div class="timeline-date">2021 - <span data-i18n="experience.current">Presente</span></div>
+                        <h4 class="timeline-title" data-i18n="experience.roles.qaEngineer">Senior Automation QA Engineer</h4>
                         <h5 class="timeline-company">Kairos for Inditex</h5>
                         <div class="timeline-tech-stack">
                             <span class="tech-badge">Karate</span>
@@ -190,11 +218,11 @@
                             <span class="tech-badge">iOS Testing</span>
                         </div>
                         <ul class="timeline-achievements">
-                            <li>Desarrollo de historias de usuario y toma de requisitos en equipo Scrum</li>
-                            <li>Automatización de pruebas frontend para iOS usando XCUITest</li>
-                            <li>Pruebas automatizadas de backend con Karate</li>
-                            <li>Testing de rendimiento utilizando JMeter</li>
-                            <li>Creación de casos de prueba manuales para historias de usuario y pruebas de regresión</li>
+                            <li data-i18n="experience.kairos.achievements.1">Desarrollo de historias de usuario y toma de requisitos en equipo Scrum</li>
+                            <li data-i18n="experience.kairos.achievements.2">Automatización de pruebas frontend para iOS usando XCUITest</li>
+                            <li data-i18n="experience.kairos.achievements.3">Pruebas automatizadas de backend con Karate</li>
+                            <li data-i18n="experience.kairos.achievements.4">Testing de rendimiento utilizando JMeter</li>
+                            <li data-i18n="experience.kairos.achievements.5">Creación de casos de prueba manuales para historias de usuario y pruebas de regresión</li>
                         </ul>
                     </div>
                 </div>
@@ -214,19 +242,19 @@
                         </div>
                         <div class="timeline-roles">
                             <div class="role">
-                                <h6>Quality Experience Team (2020-2021)</h6>
+                                <h6 data-i18n="experience.sopra.roles.qe">Quality Experience Team (2020-2021)</h6>
                                 <ul>
-                                    <li>Mantenimiento y mejoras del framework (Node.js, Cucumber, Appium)</li>
-                                    <li>Revisión de Pull Requests de pruebas</li>
-                                    <li>Soporte para creación y resolución de problemas en pruebas e2e</li>
+                                    <li data-i18n="experience.sopra.qe.achievements.1">Mantenimiento y mejoras del framework (Node.js, Cucumber, Appium)</li>
+                                    <li data-i18n="experience.sopra.qe.achievements.2">Revisión de Pull Requests de pruebas</li>
+                                    <li data-i18n="experience.sopra.qe.achievements.3">Soporte para creación y resolución de problemas en pruebas e2e</li>
                                 </ul>
                             </div>
                             <div class="role">
-                                <h6>Do It Yourself Team (2019-2020)</h6>
+                                <h6 data-i18n="experience.sopra.roles.diy">Do It Yourself Team (2019-2020)</h6>
                                 <ul>
-                                    <li>QA Tester en equipo Scrum con TDD</li>
-                                    <li>Automatización con Cucumber y Selenium</li>
-                                    <li>Creación de planes de prueba</li>
+                                    <li data-i18n="experience.sopra.diy.achievements.1">QA Tester en equipo Scrum con TDD</li>
+                                    <li data-i18n="experience.sopra.diy.achievements.2">Automatización con Cucumber y Selenium</li>
+                                    <li data-i18n="experience.sopra.diy.achievements.3">Creación de planes de prueba</li>
                                 </ul>
                             </div>
                         </div>
@@ -274,7 +302,7 @@
 
                 <!-- Show More Button -->
                 <div class="show-more-container">
-                    <button class="show-more-btn">
+                    <button class="show-more-btn" data-i18n="experience.showMore">
                         Ver más experiencia
                         <i class="bi bi-chevron-down"></i>
                     </button>
@@ -508,7 +536,7 @@
 
             <!-- Featured Project -->
             <div class="featured-project mt-5" data-aos="fade-up">
-                <h3 class="text-center mb-4">Proyecto Destacado</h3>
+                <h3 class="text-center mb-4" data-i18n="featured.title">Proyecto Destacado</h3>
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="project-video">
@@ -517,16 +545,16 @@
                     </div>
                     <div class="col-md-6">
                         <div class="project-info">
-                            <h4>Asistente de Historias de Usuario con IA</h4>
-                            <p class="project-description">
+                            <h4 data-i18n="featured.aiAssistant.title">Asistente de Historias de Usuario con IA</h4>
+                            <p class="project-description" data-i18n="featured.aiAssistant.description">
                                 Desarrollo de una herramienta innovadora que utiliza Inteligencia Artificial para asistir en la creación y mejora de historias de usuario, facilitando el proceso de desarrollo ágil.
                             </p>
                             <div class="project-links">
                                 <a href="https://github.com/rgarciademarina/user-story-assistant" target="_blank" class="btn btn-outline-primary me-2">
-                                    <i class="bi bi-github"></i> Ver Código
+                                    <i class="bi bi-github"></i> <span data-i18n="featured.viewCode">Ver Código</span>
                                 </a>
                                 <a href="https://html-preview.github.io/?url=https://github.com/rgarciademarina/AI4Devs-videogame-rgm/blob/main/minotaur-maze-rgm/index.html" target="_blank" class="btn btn-outline-primary">
-                                    <i class="bi bi-joystick"></i> Jugar Minotaur Maze
+                                    <i class="bi bi-joystick"></i> <span data-i18n="featured.playGame">Jugar Minotaur Maze</span>
                                 </a>
                             </div>
                         </div>
@@ -536,10 +564,10 @@
 
             <!-- Skills Overview -->
             <div class="skills-overview mt-5">
-                <h3 class="text-center mb-4">Especialidades</h3>
+                <h3 class="text-center mb-4" data-i18n="skills.title">Especialidades</h3>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h5><i class="bi bi-gear"></i> Automatización</h5>
+                        <h5><i class="bi bi-gear"></i> <span data-i18n="skills.automation">Automatización</span></h5>
                         <div class="skill-tags">
                             <span class="skill-tag">Selenium</span>
                             <span class="skill-tag">Cucumber</span>
@@ -550,7 +578,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <h5><i class="bi bi-code-slash"></i> Lenguajes</h5>
+                        <h5><i class="bi bi-code-slash"></i> <span data-i18n="skills.languages">Lenguajes</span></h5>
                         <div class="skill-tags">
                             <span class="skill-tag">Java</span>
                             <span class="skill-tag">JavaScript</span>
@@ -560,7 +588,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <h5><i class="bi bi-brain"></i> Innovación</h5>
+                        <h5><i class="bi bi-brain"></i> <span data-i18n="skills.innovation">Innovación</span></h5>
                         <div class="skill-tags">
                             <span class="skill-tag">IA</span>
                             <span class="skill-tag">Chatbots</span>
@@ -574,21 +602,21 @@
 
     <section id="education" class="section">
         <div class="container">
-            <h2 class="text-center mb-5">Formación</h2>
+            <h2 class="text-center mb-5" data-i18n="education.title">Formación</h2>
             
             <!-- Educación Formal -->
             <div class="education-category mb-5" data-aos="fade-up">
-                <h3 class="category-title">Educación Formal</h3>
+                <h3 class="category-title" data-i18n="education.formal">Educación Formal</h3>
                 <div class="education-grid">
                     <div class="education-item">
                         <div class="education-content">
                             <div class="education-year">2024</div>
-                            <h4 class="education-title">Máster en Ingeniería de IA</h4>
-                            <h5 class="education-institution">Lidr.co</h5>
-                            <div class="tech-stack">
-                                <span class="tech-badge">Inteligencia Artificial</span>
-                                <span class="tech-badge">Machine Learning</span>
-                                <span class="tech-badge">Data Science</span>
+                            <h4 class="education-title" data-i18n="education.degrees.aiMaster.title">Máster en Ingeniería de IA</h4>
+                            <h5 class="education-institution" data-i18n="education.degrees.aiMaster.institution">Lidr.co</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge" data-i18n="education.tech.ai">Inteligencia Artificial</span>
+                                <span class="tech-badge" data-i18n="education.tech.ml">Machine Learning</span>
+                                <span class="tech-badge" data-i18n="education.tech.dataScience">Data Science</span>
                             </div>
                         </div>
                     </div>
@@ -596,11 +624,11 @@
                     <div class="education-item">
                         <div class="education-content">
                             <div class="education-year">2000-2002</div>
-                            <h4 class="education-title">Grado en Sistemas de Telecomunicación y Computadores</h4>
-                            <div class="tech-stack">
-                                <span class="tech-badge">Telecomunicaciones</span>
-                                <span class="tech-badge">Sistemas</span>
-                                <span class="tech-badge">Computación</span>
+                            <h4 class="education-title" data-i18n="education.degrees.telecommunications.title">Grado en Sistemas de Telecomunicación y Computadores</h4>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge" data-i18n="education.tech.telecom">Telecomunicaciones</span>
+                                <span class="tech-badge" data-i18n="education.tech.systems">Sistemas</span>
+                                <span class="tech-badge" data-i18n="education.tech.computing">Computación</span>
                             </div>
                         </div>
                     </div>
@@ -609,16 +637,16 @@
 
             <!-- Certificaciones Profesionales -->
             <div class="education-category mb-5" data-aos="fade-up">
-                <h3 class="category-title">Certificaciones Profesionales</h3>
+                <h3 class="category-title" data-i18n="education.certifications">Certificaciones Profesionales</h3>
                 <div class="education-grid">
                     <div class="education-item">
                         <div class="education-content">
                             <div class="education-year">2021</div>
-                            <h4 class="education-title">ISTQB Certified Tester</h4>
-                            <h5 class="education-institution">Foundation Level (CTFL)</h5>
-                            <div class="tech-stack">
-                                <span class="tech-badge">Testing</span>
-                                <span class="tech-badge">QA</span>
+                            <h4 class="education-title" data-i18n="education.certs.istqb.title">ISTQB Certified Tester</h4>
+                            <h5 class="education-institution" data-i18n="education.certs.istqb.level">Foundation Level (CTFL)</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge" data-i18n="education.tech.testing">Testing</span>
+                                <span class="tech-badge" data-i18n="education.tech.qa">QA</span>
                                 <span class="tech-badge">ISTQB</span>
                             </div>
                         </div>
@@ -627,10 +655,10 @@
                     <div class="education-item">
                         <div class="education-content">
                             <div class="education-year">2014</div>
-                            <h4 class="education-title">Oracle Certified Professional</h4>
-                            <h5 class="education-institution">Java SE 6 Programmer</h5>
-                            <div class="tech-stack">
-                                <span class="tech-badge">Java</span>
+                            <h4 class="education-title" data-i18n="education.certs.oracle.title">Oracle Certified Professional</h4>
+                            <h5 class="education-institution" data-i18n="education.certs.oracle.level">Java SE 6 Programmer</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge" data-i18n="education.tech.java">Java</span>
                                 <span class="tech-badge">OCP</span>
                                 <span class="tech-badge">Oracle</span>
                             </div>
@@ -641,16 +669,16 @@
 
             <!-- Formación Especializada -->
             <div class="education-category mb-5" data-aos="fade-up">
-                <h3 class="category-title">Formación Especializada</h3>
+                <h3 class="category-title" data-i18n="education.specialized">Formación Especializada</h3>
                 <div class="education-grid">
                     <div class="education-item">
                         <div class="education-content">
                             <div class="education-year">2016</div>
-                            <h4 class="education-title">Selenium WebDriver con Java</h4>
-                            <div class="tech-stack">
+                            <h4 class="education-title" data-i18n="education.courses.selenium.title">Selenium WebDriver con Java</h4>
+                            <div class="timeline-tech-stack">
                                 <span class="tech-badge">Selenium</span>
-                                <span class="tech-badge">Java</span>
-                                <span class="tech-badge">Automatización</span>
+                                <span class="tech-badge" data-i18n="education.tech.java">Java</span>
+                                <span class="tech-badge" data-i18n="education.tech.automation">Automatización</span>
                             </div>
                         </div>
                     </div>
@@ -658,12 +686,12 @@
                     <div class="education-item">
                         <div class="education-content">
                             <div class="education-year">2015</div>
-                            <h4 class="education-title">Desarrollo Web con Spring MVC/Rest</h4>
-                            <h5 class="education-institution">Web Flow y JPA</h5>
-                            <div class="tech-stack">
-                                <span class="tech-badge">Spring</span>
-                                <span class="tech-badge">REST</span>
-                                <span class="tech-badge">JPA</span>
+                            <h4 class="education-title" data-i18n="education.courses.spring.title">Desarrollo Web con Spring MVC/Rest</h4>
+                            <h5 class="education-institution" data-i18n="education.courses.spring.subtitle">Web Flow y JPA</h5>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge" data-i18n="education.tech.spring">Spring</span>
+                                <span class="tech-badge" data-i18n="education.tech.rest">REST</span>
+                                <span class="tech-badge" data-i18n="education.tech.jpa">JPA</span>
                             </div>
                         </div>
                     </div>
@@ -671,11 +699,11 @@
                     <div class="education-item">
                         <div class="education-content">
                             <div class="education-year">2015</div>
-                            <h4 class="education-title">Catálogo de Patrones Java OpenSource</h4>
-                            <div class="tech-stack">
-                                <span class="tech-badge">Java</span>
-                                <span class="tech-badge">Patrones</span>
-                                <span class="tech-badge">OpenSource</span>
+                            <h4 class="education-title" data-i18n="education.courses.patterns.title">Catálogo de Patrones Java OpenSource</h4>
+                            <div class="timeline-tech-stack">
+                                <span class="tech-badge" data-i18n="education.tech.java">Java</span>
+                                <span class="tech-badge" data-i18n="education.tech.patterns">Patrones</span>
+                                <span class="tech-badge" data-i18n="education.tech.opensource">OpenSource</span>
                             </div>
                         </div>
                     </div>
@@ -686,13 +714,13 @@
 
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="text-center mb-5">Contacto</h2>
+            <h2 class="text-center mb-5" data-i18n="contact.title">Contacto</h2>
             
             <div class="row">
                 <!-- Información de Contacto -->
                 <div class="col-md-6 mb-4" data-aos="fade-right">
                     <div class="contact-info-card">
-                        <h3>Información de Contacto</h3>
+                        <h3 data-i18n="contact.info">Información de Contacto</h3>
                         <div class="contact-items">
                             <div class="contact-item" id="emailContainer">
                                 <i class="bi bi-envelope"></i>
@@ -717,7 +745,7 @@
 
                         <!-- QR Code -->
                         <div class="qr-container mt-4">
-                            <h4>Escanea mi tarjeta de contacto</h4>
+                            <h4 data-i18n="qr.scan">Escanea mi tarjeta de contacto</h4>
                             <div id="qrcode"></div>
                         </div>
                     </div>
@@ -726,14 +754,14 @@
                 <!-- Formulario de Contacto -->
                 <div class="col-md-6" data-aos="fade-left">
                     <div class="contact-form-card">
-                        <h3>Envíame un mensaje</h3>
+                        <h3 data-i18n="contact.title">Contacto</h3>
                         <form id="contactForm" action="https://formspree.io/f/mjkgoanq" method="POST">
                             <!-- Honeypot field -->
                             <input type="text" name="_gotcha" style="display:none">
                             
                             <div class="form-group mb-3">
-                                <label for="name">Nombre *</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <label for="name" data-i18n="contact.form.name">Nombre</label>
+                                <input type="text" class="form-control" id="name" name="name" required data-i18n="contact.form.name" data-i18n-attr="placeholder">
                             </div>
                             
                             <div class="form-group mb-3">
@@ -760,7 +788,7 @@
                                 <input type="number" class="form-control" id="verification" name="verification" required>
                             </div>
                             <button type="submit" class="btn btn-primary">
-                                Enviar Mensaje
+                                <span data-i18n="contact.form.send">Enviar Mensaje</span>
                                 <i class="bi bi-send ms-2"></i>
                             </button>
                         </form>
@@ -772,7 +800,7 @@
 
     <footer class="footer">
         <div class="container text-center">
-            <p>&copy; 2024 Raúl García de Marina. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Raúl García de Marina. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 

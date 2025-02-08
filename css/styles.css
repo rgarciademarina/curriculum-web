@@ -278,6 +278,58 @@ section {
     margin-top: 1rem;
 }
 
+.tech-badge {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    color: var(--light-text);
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.timeline-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Estilos compartidos para las etiquetas en modal y tarjetas */
+.modal-tags .tech-badge,
+.tech-stack .tech-badge,
+.timeline-tech-stack .tech-badge {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    color: var(--light-text);
+    transition: all 0.3s ease;
+}
+
+.modal-tags .tech-badge:hover,
+.tech-stack .tech-badge:hover,
+.timeline-tech-stack .tech-badge:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .tech-badge,
+    .modal-tags .tech-badge,
+    .tech-stack .tech-badge,
+    .timeline-tech-stack .tech-badge {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
 /* Form Styles */
 .form-group label {
     color: var(--text-color);
@@ -322,23 +374,25 @@ textarea.form-control {
     }
 }
 
-/* Modal a pantalla completa */
-.fullscreen-modal {
+/* Modal Styles */
+.modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
+    z-index: 1000;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.fullscreen-modal.active {
+.modal.active {
     display: flex;
     opacity: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
@@ -346,125 +400,134 @@ textarea.form-control {
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.modal-body {
+    position: relative;
+    max-width: 900px;
+    width: 90%;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 2rem;
+    gap: 2rem;
+    padding: 60px 20px;
+    color: var(--light-text);
 }
 
 .modal-image {
-    max-height: 70vh;
-    max-width: 90%;
+    max-height: 60vh;
+    width: auto;
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.modal-info {
-    margin-top: 2rem;
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
-}
-
 .modal-title {
     color: var(--accent-color);
-    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
 }
 
 .modal-text {
     color: var(--light-text);
-    margin-bottom: 1.5rem;
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.modal-tags .tech-badge {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 25px;
+    color: var(--light-text);
+}
+
+.nav-button, .close-modal {
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--accent-color);
+    color: var(--light-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1002;
+    padding: 0;
+}
+
+.modal.active .nav-button,
+.modal.active .close-modal {
+    display: flex;
 }
 
 .close-modal {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: var(--light-text);
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10000;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
+    top: 30px;
+    right: 30px;
+    font-size: 1.5rem;
 }
 
 .close-modal:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--accent-color);
     transform: scale(1.1);
 }
 
 .nav-button {
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(74, 144, 226, 0.2);
-    border: 2px solid var(--accent-color);
-    color: var(--light-text);
-    font-size: 2rem;
-    cursor: pointer;
-    width: 50px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    z-index: 10001; /* Aseguramos que esté por encima del contenido del modal */
+    font-size: 1.5rem;
+}
+
+.prev-button {
+    left: 30px;
+}
+
+.next-button {
+    right: 30px;
 }
 
 .nav-button:hover {
     background-color: var(--accent-color);
-    color: var(--darker-bg);
     transform: translateY(-50%) scale(1.1);
 }
 
-.prev-button {
-    left: 20px;
-}
-
-.next-button {
-    right: 20px;
-}
-
-/* Animaciones para el modal */
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.modal-content {
-    animation: modalFadeIn 0.3s ease forwards;
-}
-
-/* Responsive adjustments para el modal */
 @media (max-width: 768px) {
-    .nav-button {
-        width: 40px;
-        height: 60px;
-        font-size: 1.5rem;
-        background: rgba(74, 144, 226, 0.3); /* Más visible en móviles */
+    .nav-button, .close-modal {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
     }
 
-    .modal-image {
-        max-height: 60vh;
+    .close-modal {
+        top: 20px;
+        right: 20px;
     }
 
-    .modal-info {
-        margin-top: 1rem;
+    .prev-button {
+        left: 20px;
+    }
+
+    .next-button {
+        right: 20px;
     }
 }
 
@@ -523,6 +586,7 @@ textarea.form-control {
     color: white;
     font-size: 2rem;
     cursor: pointer;
+    z-index: 10000;
     width: 40px;
     height: 40px;
     display: flex;
@@ -530,7 +594,7 @@ textarea.form-control {
     align-items: center;
     border-radius: 50%;
     transition: all 0.3s ease;
-    z-index: 10000;
+    padding: 0;
 }
 
 .close-button:hover {
@@ -702,26 +766,23 @@ textarea.form-control {
 .timeline-tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin: 10px 0;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 .timeline-tech-stack .tech-badge {
-    background: var(--primary-color);
-    color: var(--text-color);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    color: var(--light-text);
     transition: all 0.3s ease;
 }
 
 .timeline-tech-stack .tech-badge:hover {
+    background-color: var(--accent-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: var(--accent-color);
 }
 
 /* Ajustes responsive para las etiquetas */
@@ -1180,9 +1241,10 @@ textarea.form-control {
         object-fit: cover;
     }
 
-    .about-text {
-        font-size: 0.95rem;
-        line-height: 1.6;
+    .about-text,
+    .timeline-description,
+    .contact-text {
+        font-size: 0.9rem;
     }
 
     /* Ajustes para la Experiencia Profesional */
