@@ -76,46 +76,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Modal functionality
-    const modal = document.getElementById('fullscreenModal');
+    const modal = document.querySelector('.modal');
     const modalImage = modal.querySelector('.modal-image');
     const modalTitle = modal.querySelector('.modal-title');
     const modalText = modal.querySelector('.modal-text');
     const modalTags = modal.querySelector('.modal-tags');
-    const closeButton = modal.querySelector('.close-modal');
     const prevButton = modal.querySelector('.prev-button');
     const nextButton = modal.querySelector('.next-button');
+    const closeButton = modal.querySelector('.close-modal');
     let currentCardIndex = 0;
     const cards = document.querySelectorAll('.about-card');
+
+    // Event listeners para las tarjetas
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            openModal(card, index);
+        });
+    });
 
     // Función para abrir el modal con una tarjeta específica
     function openModal(card, index) {
         currentCardIndex = index;
+        
         const image = card.querySelector('.about-image');
         const title = card.querySelector('h3');
-        const textContent = card.querySelector('.about-text p'); // Selecciona solo el párrafo de texto
-        const tags = card.querySelector('.tech-stack');
+        const textContent = card.querySelector('.about-text p');
+        let tags = card.querySelector('.about-text .tech-stack');
+        if (!tags) {
+            tags = card.querySelector('.about-text .timeline-tech-stack');
+        }
 
         modalImage.src = image.src;
         modalImage.alt = image.alt;
         modalTitle.textContent = title.textContent;
         modalText.innerHTML = textContent.innerHTML;
-        modalTags.innerHTML = tags.innerHTML;
+        modalTags.innerHTML = tags ? tags.innerHTML : '';
 
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevenir scroll
+        document.body.style.overflow = 'hidden';
         updateNavigationButtons();
     }
 
     // Función para cerrar el modal
     function closeModal() {
         modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restaurar scroll
+        document.body.style.overflow = '';
     }
 
     // Función para actualizar la visibilidad de los botones de navegación
     function updateNavigationButtons() {
-        prevButton.style.display = currentCardIndex > 0 ? 'flex' : 'none';
-        nextButton.style.display = currentCardIndex < cards.length - 1 ? 'flex' : 'none';
+        prevButton.style.visibility = currentCardIndex > 0 ? 'visible' : 'hidden';
+        nextButton.style.visibility = currentCardIndex < cards.length - 1 ? 'visible' : 'hidden';
     }
 
     // Función para navegar entre tarjetas
@@ -126,26 +137,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event listeners para las tarjetas
-    cards.forEach((card, index) => {
-        card.addEventListener('click', () => openModal(card, index));
-    });
-
-    // Event listener para cerrar el modal
-    closeButton.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    // Navegación entre tarjetas
+    // Event listeners para los botones
     prevButton.addEventListener('click', (e) => {
         e.stopPropagation();
-        navigateModal(-1);
+        if (currentCardIndex > 0) {
+            navigateModal(-1);
+        }
     });
 
     nextButton.addEventListener('click', (e) => {
         e.stopPropagation();
-        navigateModal(1);
+        if (currentCardIndex < cards.length - 1) {
+            navigateModal(1);
+        }
+    });
+
+    closeButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeModal();
+    });
+
+    // Event listener para cerrar el modal al hacer clic fuera
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
     });
 
     // Navegación con teclado
@@ -157,10 +173,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeModal();
                 break;
             case 'ArrowLeft':
-                navigateModal(-1);
+                if (currentCardIndex > 0) {
+                    navigateModal(-1);
+                }
                 break;
             case 'ArrowRight':
-                navigateModal(1);
+                if (currentCardIndex < cards.length - 1) {
+                    navigateModal(1);
+                }
                 break;
         }
     });
