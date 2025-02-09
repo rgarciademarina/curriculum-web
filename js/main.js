@@ -218,6 +218,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Manejo del formulario de contacto
+    const contactForm = document.querySelector('#contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Verificar el reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                alert('Por favor, completa el captcha');
+                return;
+            }
+
+            // Obtener los datos del formulario
+            const formData = {
+                name: document.querySelector('#name').value,
+                email: document.querySelector('#email').value,
+                message: document.querySelector('#message').value,
+                'g-recaptcha-response': recaptchaResponse
+            };
+
+            // Aquí puedes añadir el código para enviar los datos a tu servidor
+            console.log('Formulario enviado:', formData);
+            
+            // Resetear el formulario y el captcha
+            contactForm.reset();
+            grecaptcha.reset();
+            
+            // Mostrar mensaje de éxito
+            alert('Mensaje enviado correctamente');
+        });
+    }
 });
 
 // Image overlay functionality
