@@ -185,8 +185,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Añadir funcionalidad para cerrar el menú en móvil
+    // Asegurar que el menú se cierra correctamente
     const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    // Cerrar el menú al hacer clic en el botón hamburguesa cuando está abierto
+    navbarToggler.addEventListener('click', function() {
+        if (navbarCollapse.classList.contains('show')) {
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+            bsCollapse.hide();
+        }
+    });
+
+    // Cerrar el menú al hacer clic en cualquier enlace
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+        });
+    });
+
+    // Añadir funcionalidad para cerrar el menú en móvil
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             const navbarCollapse = document.querySelector('.navbar-collapse');
