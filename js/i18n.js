@@ -2,9 +2,11 @@ const translations = {
     es: {
         nav: {
             home: "Inicio",
-            about: "Sobre Mí",
+            about: "Sobre mí",
+            skills: "Habilidades",
             experience: "Experiencia",
             education: "Formación",
+            featured: "Proyectos",
             contact: "Contacto"
         },
         hero: {
@@ -37,7 +39,34 @@ const translations = {
             },
             values: {
                 title: "Valores y Lealtad",
-                description: "La relación con mis gatos me ha enseñado valiosas lecciones sobre lealtad, simplicidad y autenticidad. Estos valores se reflejan en mi ética profesional, donde priorizo la honestidad en las relaciones laborales y la búsqueda de soluciones efectivas sin complicaciones innecesarias."
+                description: "La relación con mis gatos me ha enseñado valiosas lecciones sobre lealtad, simplicidad y autenticidad. Estos valores se reflejan en mi ética profesional, donde priorizo la honestidad en las relaciones laborales y la búsqueda de soluciones efectivas sin complicaciones innecesarias.",
+                teamwork: "Trabajo en Equipo",
+                empathy: "Empatía",
+                responsibility: "Responsabilidad",
+                curiosity: "Curiosidad",
+                exploration: "Exploración",
+                adaptability: "Adaptabilidad",
+                growth: "Crecimiento",
+                vision: "Visión",
+                loyalty: "Lealtad",
+                simplicity: "Simplicidad",
+                authenticity: "Autenticidad"
+            },
+            tech: {
+                newTech: "Nuevas Tecnologías",
+                vrAr: "VR/AR",
+                innovation: "Innovación",
+                teamwork: "Trabajo en Equipo",
+                empathy: "Empatía",
+                responsibility: "Responsabilidad",
+                curiosity: "Curiosidad",
+                exploration: "Exploración",
+                adaptability: "Adaptabilidad",
+                growth: "Crecimiento",
+                vision: "Visión",
+                loyalty: "Lealtad",
+                simplicity: "Simplicidad",
+                authenticity: "Autenticidad"
             }
         },
         experience: {
@@ -151,10 +180,14 @@ const translations = {
             rights: "Todos los derechos reservados."
         },
         featured: {
-            title: "Proyecto Destacado",
+            title: "Proyectos Destacados",
             aiAssistant: {
                 title: "Asistente de Historias de Usuario con IA",
                 description: "Desarrollo de una herramienta innovadora que utiliza Inteligencia Artificial para asistir en la creación y mejora de historias de usuario, facilitando el proceso de desarrollo ágil."
+            },
+            curriculumWeb: {
+                title: "Curriculum Web Interactivo",
+                description: "¿Te gusta este curriculum web? Échale un vistazo al código fuente. Desarrollado con HTML5, CSS3 y JavaScript, incorpora características modernas como modo oscuro, internacionalización y diseño responsive."
             },
             viewCode: "Ver Código",
             playGame: "Jugar Minotaur Maze"
@@ -173,9 +206,11 @@ const translations = {
     en: {
         nav: {
             home: "Home",
-            about: "About",
+            about: "About me",
+            skills: "Skills",
             experience: "Experience",
             education: "Education",
+            featured: "Projects",
             contact: "Contact"
         },
         hero: {
@@ -208,7 +243,34 @@ const translations = {
             },
             values: {
                 title: "Values and Loyalty",
-                description: "My relationship with my cats has taught me valuable lessons about loyalty, simplicity, and authenticity. These values are reflected in my professional ethics, where I prioritize honesty in work relationships and the pursuit of effective solutions without unnecessary complications."
+                description: "My relationship with my cats has taught me valuable lessons about loyalty, simplicity, and authenticity. These values are reflected in my professional ethics, where I prioritize honesty in work relationships and the pursuit of effective solutions without unnecessary complications.",
+                teamwork: "Team Work",
+                empathy: "Empathy",
+                responsibility: "Responsibility",
+                curiosity: "Curiosity",
+                exploration: "Exploration",
+                adaptability: "Adaptability",
+                growth: "Growth",
+                vision: "Vision",
+                loyalty: "Loyalty",
+                simplicity: "Simplicity",
+                authenticity: "Authenticity"
+            },
+            tech: {
+                newTech: "New Technologies",
+                vrAr: "VR/AR",
+                innovation: "Innovation",
+                teamwork: "Team Work",
+                empathy: "Empathy",
+                responsibility: "Responsibility",
+                curiosity: "Curiosity",
+                exploration: "Exploration",
+                adaptability: "Adaptability",
+                growth: "Growth",
+                vision: "Vision",
+                loyalty: "Loyalty",
+                simplicity: "Simplicity",
+                authenticity: "Authenticity"
             }
         },
         experience: {
@@ -322,10 +384,14 @@ const translations = {
             rights: "All rights reserved."
         },
         featured: {
-            title: "Featured Project",
+            title: "Featured Projects",
             aiAssistant: {
                 title: "AI User Story Assistant",
                 description: "Development of an innovative tool that uses Artificial Intelligence to assist in the creation and improvement of user stories, facilitating the agile development process."
+            },
+            curriculumWeb: {
+                title: "Interactive Web Resume",
+                description: "Like this web resume? Take a look at the source code. Built with HTML5, CSS3, and JavaScript, it features modern capabilities like dark mode, internationalization, and responsive design."
             },
             viewCode: "View Code",
             playGame: "Play Minotaur Maze"
@@ -345,7 +411,18 @@ const translations = {
 
 class I18nManager {
     constructor() {
-        this.currentLang = localStorage.getItem('preferredLanguage') || 'es';
+        // Obtener el idioma de la URL si existe
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        
+        // Usar el parámetro de la URL si es válido, si no usar localStorage o español por defecto
+        if (langParam && ['es', 'en'].includes(langParam.toLowerCase())) {
+            this.currentLang = langParam.toLowerCase();
+            localStorage.setItem('preferredLanguage', this.currentLang);
+        } else {
+            this.currentLang = localStorage.getItem('preferredLanguage') || 'es';
+        }
+        
         this.init();
     }
 
@@ -365,6 +442,12 @@ class I18nManager {
     toggleLanguage() {
         this.currentLang = this.currentLang === 'es' ? 'en' : 'es';
         localStorage.setItem('preferredLanguage', this.currentLang);
+        
+        // Actualizar la URL cuando se cambia el idioma
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', this.currentLang);
+        window.history.replaceState({}, '', url);
+        
         this.updateLanguageButton();
         this.translatePage();
     }
@@ -409,5 +492,9 @@ class I18nManager {
 
 // Inicializar el gestor de idiomas cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
+    // Establecer el idioma español por defecto si no hay ninguno guardado
+    if (!localStorage.getItem('preferredLanguage')) {
+        localStorage.setItem('preferredLanguage', 'es');
+    }
     window.i18n = new I18nManager();
 });

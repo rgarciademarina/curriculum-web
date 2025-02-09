@@ -184,6 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     });
+
+    // Añadir funcionalidad para cerrar el menú en móvil
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+                // Usar el método de Bootstrap para cerrar el menú
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+        });
+    });
 });
 
 // Image overlay functionality
