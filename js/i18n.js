@@ -2,9 +2,11 @@ const translations = {
     es: {
         nav: {
             home: "Inicio",
-            about: "Sobre Mí",
+            about: "Sobre mí",
+            skills: "Habilidades",
             experience: "Experiencia",
             education: "Formación",
+            featured: "Proyectos",
             contact: "Contacto"
         },
         hero: {
@@ -178,7 +180,7 @@ const translations = {
             rights: "Todos los derechos reservados."
         },
         featured: {
-            title: "Proyecto Destacado",
+            title: "Proyectos Destacados",
             aiAssistant: {
                 title: "Asistente de Historias de Usuario con IA",
                 description: "Desarrollo de una herramienta innovadora que utiliza Inteligencia Artificial para asistir en la creación y mejora de historias de usuario, facilitando el proceso de desarrollo ágil."
@@ -204,9 +206,11 @@ const translations = {
     en: {
         nav: {
             home: "Home",
-            about: "About",
+            about: "About me",
+            skills: "Skills",
             experience: "Experience",
             education: "Education",
+            featured: "Projects",
             contact: "Contact"
         },
         hero: {
@@ -380,7 +384,7 @@ const translations = {
             rights: "All rights reserved."
         },
         featured: {
-            title: "Featured Project",
+            title: "Featured Projects",
             aiAssistant: {
                 title: "AI User Story Assistant",
                 description: "Development of an innovative tool that uses Artificial Intelligence to assist in the creation and improvement of user stories, facilitating the agile development process."
