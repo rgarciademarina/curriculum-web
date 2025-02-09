@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e330d8a2-a150-4b7b-af4a-51892349acd9" name="Changes" comment="Add capcha" />
+    <list default="true" id="e330d8a2-a150-4b7b-af4a-51892349acd9" name="Changes" comment="Fix menú hamburguesa">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +40,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature/captcha",
+    "git-widget-placeholder": "fix/missing-menu-movil",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Workspace/curriculum-web"
   }
@@ -83,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739099059790</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix menú hamburguesa">
+      <option name="closed" value="true" />
+      <created>1739101312919</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739101312919</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -91,6 +102,7 @@
     <MESSAGE value="Minor adjustments" />
     <MESSAGE value="Minor adjustments. Add deploy.yml" />
     <MESSAGE value="Add capcha" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add capcha" />
+    <MESSAGE value="Fix menú hamburguesa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix menú hamburguesa" />
   </component>
 </project>

@@ -13,29 +13,44 @@
     color: var(--light-text);
 }
 
+/* Reset para evitar scroll horizontal */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
 /* Navbar Styles */
 .navbar {
     background-color: var(--darker-bg);
     position: fixed;
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
     top: 0;
     left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand {
     color: var(--accent-color) !important;
-}
-
-.nav-link {
-    color: var(--gray-text) !important;
-}
-
-.nav-link:hover {
-    color: var(--accent-color) !important;
+    margin-right: auto;
 }
 
 .navbar-toggler {
     border-color: var(--accent-color);
+    position: relative;
+    right: 0;
+    padding: 0.5rem;
 }
 
 .navbar-toggler-icon {
@@ -45,6 +60,31 @@
 @media (max-width: 768px) {
     .navbar-collapse {
         background-color: var(--darker-bg);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .navbar-nav {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .nav-item {
+        padding: 0.25rem 0;
+    }
+
+    .nav-link {
+        padding-left: 0.5rem !important;
+        font-size: 1.1rem;
+    }
+    
+    .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 
@@ -661,7 +701,7 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 1002;
+    z-index: 1100;
     padding: 0;
 }
 
