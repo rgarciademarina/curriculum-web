@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e330d8a2-a150-4b7b-af4a-51892349acd9" name="Changes" comment="English translation" />
+    <list default="true" id="e330d8a2-a150-4b7b-af4a-51892349acd9" name="Changes" comment="Minor adjustments. Add deploy.yml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,18 +13,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "rgarciademarina"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rgarciademarina&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/rgarciademarina/curriculum-web.git",
-    "accountId": "c6c56a95-6ce5-4c2b-9c48-6381d1e9aed3"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/rgarciademarina/curriculum-web.git&quot;,
+    &quot;accountId&quot;: &quot;c6c56a95-6ce5-4c2b-9c48-6381d1e9aed3&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -37,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "feature/minor__adjustments",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Workspace/curriculum-web"
   }
@@ -59,11 +59,29 @@
       <option name="project" value="LOCAL" />
       <updated>1739041831676</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Minor adjustments">
+      <option name="closed" value="true" />
+      <created>1739096041688</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739096041688</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Minor adjustments. Add deploy.yml">
+      <option name="closed" value="true" />
+      <created>1739097377919</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739097377919</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="English translation" />
-    <option name="LAST_COMMIT_MESSAGE" value="English translation" />
+    <MESSAGE value="Minor adjustments" />
+    <MESSAGE value="Minor adjustments. Add deploy.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor adjustments. Add deploy.yml" />
   </component>
 </project>

@@ -112,15 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Verificación simple
-            const verification = document.getElementById('verification');
-            if (verification && verification.value !== '5') {
-                alert('La verificación es incorrecta. Por favor, intenta de nuevo.');
+            // Verificar reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                alert('Por favor, completa el captcha');
                 return;
             }
             
             try {
                 const formData = new FormData(form);
+                formData.append('g-recaptcha-response', recaptchaResponse);
                 
                 const response = await fetch(form.action, {
                     method: 'POST',
@@ -134,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (json.ok) {
                     alert('¡Mensaje enviado con éxito!');
                     form.reset();
+                    grecaptcha.reset();
                 } else {
                     throw new Error('Error al enviar el mensaje');
                 }
