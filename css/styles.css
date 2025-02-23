@@ -57,13 +57,14 @@ html, body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2867, 232, 249, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.navbar-nav .nav-link[data-i18n="nav.featured"] {
-    color: var(--light-text);
+.navbar-nav .nav-link {
+    color: var(--gray-text);
     transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link[data-i18n="nav.featured"]:hover {
-    color: var(--accent-color);
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--light-text);
 }
 
 @media (max-width: 768px) {
@@ -381,6 +382,33 @@ section {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
+}
+
+.timeline-tech-stack {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    background-color: rgba(74, 144, 226, 0.1);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.timeline-details {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+}
+
+.timeline-details li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
 }
 
 /* Estilos compartidos para las etiquetas en modal y tarjetas */
@@ -1092,6 +1120,87 @@ textarea.form-control {
 
 .education-item .tech-badge:hover {
     background-color: var(--badge-bg-hover);
+}
+
+/* Estilos para la sección de formación */
+#education h2 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+#education h3 {
+    color: var(--accent-color);
+    font-size: 1.75rem;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.education-category {
+    margin-bottom: 2.5rem;
+}
+
+.education-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.education-item {
+    margin-bottom: 1rem;
+}
+
+.education-year {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.15rem;
+}
+
+.education-title {
+    color: var(--light-text);
+    font-size: 1.5rem;
+    margin-bottom: 0.15rem;
+}
+
+.education-institution {
+    color: var(--gray-text);
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    color: var(--light-text);
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    #education h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #education h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .education-category {
+        margin-bottom: 2rem;
+    }
+
+    .education-item {
+        margin-bottom: 0.75rem;
+    }
 }
 
 /* Tooltips */
