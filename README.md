@@ -13,20 +13,24 @@ Este proyecto es un sitio web personal que presenta mi trayectoria profesional, 
 - Galería de proyectos con modal a pantalla completa
 - Formulario de contacto integrado
 - Generación de código QR para información de contacto
-- Navegación suave entre secciones
+- Navegación suave entre secciones con indicador de sección activa
 - Modo oscuro por defecto
 - Optimizado para SEO y rendimiento
+- Carga dinámica de componentes
+- Internacionalización (i18n) incorporada
+- Estructura modular usando ES6 modules
 
 ## Tecnologías Utilizadas
 
 - HTML5
 - CSS3 (Animaciones, Flexbox, Grid)
-- JavaScript (ES6+)
+- JavaScript (ES6+, Modules)
 - Bootstrap 5
 - Bootstrap Icons
 - AOS (Animate On Scroll)
 - Formspree (para el formulario de contacto)
 - QR Code API
+- Intersection Observer API
 
 ## Estructura del Proyecto
 
@@ -39,10 +43,32 @@ Este proyecto es un sitio web personal que presenta mi trayectoria profesional, 
 │   └── RaulGarcia.png
 ├── images/                 # Imágenes del sitio
 ├── js/
-│   ├── contact.js         # Lógica de contacto
-│   └── main.js           # JavaScript principal
-└── index.html            # Página principal
+│   ├── components-loader.js # Cargador de componentes dinámicos
+│   ├── contact.js          # Lógica de contacto
+│   ├── experience-data.js  # Datos de experiencia laboral
+│   ├── i18n.js            # Internacionalización
+│   ├── main.js            # JavaScript principal
+│   └── templates.js        # Plantillas de componentes
+└── index.html             # Página principal
 ```
+
+## Desarrollo
+
+Para ejecutar el proyecto localmente:
+
+1. Clona el repositorio
+```bash
+git clone https://github.com/rgarciademarina/curriculum-web.git
+```
+
+2. Navega al directorio del proyecto
+```bash
+cd curriculum-web
+```
+
+3. Abre el proyecto usando un servidor local (por ejemplo, usando Live Server en VS Code)
+
+Nota: Debido al uso de ES6 modules, es necesario servir el proyecto a través de un servidor web local.
 
 ## Contacto
 
