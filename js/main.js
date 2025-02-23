@@ -56,24 +56,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Active navigation highlight
-    const observerNav = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                const id = entry.target.getAttribute('id');
-                const correspondingLink = document.querySelector(`a[href="#${id}"]`);
-                if (correspondingLink) {
-                    correspondingLink.classList.add('active');
-                }
+    function updateActiveNav() {
+        const navbarHeight = navbar.offsetHeight;
+        const scrollPosition = window.scrollY + navbarHeight;
+        let currentSection = null;
+        let smallestHeight = Infinity;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            // Check if we're within this section's bounds
+            if (scrollPosition >= sectionTop && 
+                scrollPosition < sectionTop + sectionHeight && 
+                sectionHeight < smallestHeight) {
+                currentSection = section;
+                smallestHeight = sectionHeight;
             }
         });
-    }, {
-        threshold: 0.5
-    });
 
-    sections.forEach(section => {
-        observerNav.observe(section);
-    });
+        if (currentSection) {
+            const id = currentSection.getAttribute('id');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    }
+    
+    // Ejecutar al cargar y al scroll
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav);
 
     // Modal functionality
     const modal = document.querySelector('.modal');
