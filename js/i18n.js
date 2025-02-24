@@ -292,6 +292,75 @@ const translations = {
                     5: "Creation of manual test cases for user stories and regression testing"
                 }
             },
+            steelmood: {
+                detail1: "Functional test automation for Carrefour's e-commerce platform",
+                detail2: "Development of test scripts using Java, Selenium and Rest Assured",
+                detail3: "Implementation of BDD methodology with Cucumber",
+                detail4: "Integration of automated tests in CI/CD pipeline",
+                detail5: "Creation and maintenance of test documentation in Jira"
+            },
+            tsystems: {
+                detail1: "Functional testing for Allianz insurance applications",
+                detail2: "Test planning and execution using Silk Central",
+                detail3: "Defect reporting and tracking through the development lifecycle"
+            },
+            alalza: {
+                detail1: "Technical support for roaming services",
+                detail2: "Troubleshooting of VoIP and LTE connectivity issues",
+                detail3: "Network configuration and monitoring",
+                detail4: "Customer support for international roaming services",
+                detail5: "Documentation of technical procedures",
+                detail6: "Collaboration with international carriers for service integration"
+            },
+            capitole: {
+                detail1: "Creation and maintenance of automation framework",
+                detail2: "Systems integration testing",
+                detail3: "Quality control and test documentation"
+            },
+            zemsania: {
+                detail1: "Test automation with Selenium and Cucumber using Java with Maven",
+                detail2: "SOAP web services testing with SoapUI",
+                detail3: "Design and execution of manual and automated test plans",
+                detail4: "Test centralization using TestLink"
+            },
+            alten: {
+                detail1: "Development of hybrid Android and iOS applications with Ionic",
+                detail2: "Test plan development using BDD",
+                detail3: "Automation with Selenium, Appium and Specflow in C#",
+                detail4: "Cloud testing with Perfecto Mobile",
+                detail5: "Test management with TFS"
+            },
+            urende: {
+                detail1: "Sale of computers, consumer electronics and new technologies",
+                detail2: "Sale of telephone and internet services, fixed and mobile",
+                detail3: "Documentation management for credits through SRS Santander group",
+                detail4: "Organization of transport routes",
+                detail5: "Implementation of material entries"
+            },
+            adecom: {
+                detail1: "Installation of ATMs for Caja Rural throughout Ciudad Real province",
+                detail2: "Maintenance of dispensers, recyclers, PR2 printers and computers for Getronics"
+            },
+            garcia: {
+                detail1: "Monitoring, management and repair of Siemens automatic storage system (26,000 pallets)",
+                detail2: "Maintenance and cleaning of stacker cranes",
+                detail3: "Support in production line when needed"
+            },
+            setico: {
+                detail1: "Installation and maintenance of office equipment (analog and digital photocopiers, faxes, printers)",
+                detail2: "Cleaning and setup of second-hand photocopiers for resale"
+            },
+            lanza: {
+                detail1: "Layout of newspaper pages",
+                detail2: "Maintenance and updating of Web publication"
+            },
+            icaldia: {
+                detail1: "Installation and maintenance of computer networks",
+                detail2: "Implementation of telephone systems"
+            },
+            torreon: {
+                detail1: "Implementation, management and maintenance of the institute's computer network"
+            },
             sopra: {
                 roles: {
                     qe: "Quality Experience Team (2020-2021)",
