@@ -47,9 +47,9 @@
                     <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contacto</a></li>
                     <li class="nav-item ms-2">
                         <div class="language-selector">
-                            <button class="btn btn-outline-light btn-sm" id="langToggle">
+                            <a href="#" onclick="toggleLanguage(); return false;" class="btn btn-outline-light btn-sm" id="langToggle">
                                 <i class="bi bi-translate"></i> EN
-                            </button>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -862,6 +862,20 @@
             duration: 1000,
             once: true
         });
+        
+        // Función global para cambiar de idioma
+        function toggleLanguage() {
+            const currentLang = localStorage.getItem('preferredLanguage') || 'es';
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            
+            // Guardar en localStorage
+            localStorage.setItem('preferredLanguage', newLang);
+            
+            // Recargar la página con el nuevo parámetro de idioma
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', newLang);
+            window.location.href = url.toString();
+        }
     </script>
 </body>
 </html>

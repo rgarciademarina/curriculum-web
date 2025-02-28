@@ -311,21 +311,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Configurar el idioma según la URL o el almacenamiento local
         window.i18nManager.initialize();
         
-        // Depurar después de la inicialización
-        debugTranslations();
-        
-        // Evento para garantizar que las traducciones se apliquen después de cambiar el idioma
-        const langSwitcher = document.getElementById('langSwitcher');
-        if (langSwitcher) {
-            langSwitcher.addEventListener('click', function() {
-                // Dar tiempo para que se realice el cambio de idioma y luego volver a aplicar traducciones
-                setTimeout(() => {
-                    if (window.i18nManager) {
-                        window.i18nManager.translatePage();
-                        // Depurar después del cambio de idioma
-                        debugTranslations();
-                    }
-                }, 100);
+        // Evento para cambiar el idioma
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', function() {
+                window.i18nManager.toggleLanguage();
             });
         }
     }

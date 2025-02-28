@@ -86,6 +86,13 @@ const translations = {
                 detail4: "Testing de rendimiento utilizando JMeter",
                 detail5: "Creación de casos de prueba manuales para historias de usuario y pruebas de regresión"
             },
+            steelmood: {
+                detail1: "Automatización funcional para la plataforma de comercio electrónico de Carrefour",
+                detail2: "Desarrollo de scripts de prueba utilizando Java, Selenium y Rest Assured",
+                detail3: "Implementación de la metodología BDD con Cucumber",
+                detail4: "Integración de pruebas automatizadas en la cadena de CI/CD",
+                detail5: "Creación y mantenimiento de documentación de pruebas en Jira"
+            },
             sopra: {
                 roles: {
                     qe: "Quality Experience Team (2020-2021)",
@@ -281,6 +288,13 @@ const translations = {
                 tester: "Tester",
                 developer: "Developer"
             },
+            kairos: {
+                detail1: "Development of user stories and requirements gathering in Scrum team",
+                detail2: "Frontend test automation for iOS using XCUITest",
+                detail3: "Backend automated testing with Karate",
+                detail4: "Performance testing using JMeter",
+                detail5: "Creation of manual test cases for user stories and regression testing"
+            },
             steelmood: {
                 detail1: "Functional test automation for Carrefour's e-commerce platform",
                 detail2: "Development of test scripts using Java, Selenium and Rest Assured",
@@ -469,25 +483,41 @@ const translations = {
 
 class I18nManager {
     constructor() {
-        // Obtener el idioma de la URL si existe
+        // Obtener el idioma de la URL o localStorage
         const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
+        const urlLang = urlParams.get('lang');
+        const storedLang = localStorage.getItem('preferredLanguage');
         
-        // Usar el parámetro de la URL si es válido, si no usar localStorage o español por defecto
-        if (langParam && ['es', 'en'].includes(langParam.toLowerCase())) {
-            this.currentLang = langParam.toLowerCase();
-            localStorage.setItem('preferredLanguage', this.currentLang);
-        } else {
-            this.currentLang = localStorage.getItem('preferredLanguage') || 'es';
-        }
+        // Establecer el idioma inicial
+        this.currentLang = urlLang || storedLang || 'es';
         
-        this.init();
-    }
+        // Guardar en localStorage
+        localStorage.setItem('preferredLanguage', this.currentLang);
+        
+        // Actualizar la URL
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', this.currentLang);
+        window.history.replaceState({}, '', url);
 
-    init() {
+        // Actualizar el botón de idioma
         this.updateLanguageButton();
+        
+        // Aplicar traducciones iniciales con debug
+        console.log('Initializing with language:', this.currentLang);
         this.translatePage();
-        this.setupEventListeners();
+        
+        // Segunda pasada después de un breve retraso
+        setTimeout(() => {
+            console.log('Second translation pass...');
+            this.translatePage();
+            
+            // Verificar específicamente las traducciones de Kairos
+            const kairosItems = document.querySelectorAll('[data-i18n^="experience.kairos"]');
+            console.log('Found Kairos items:', kairosItems.length);
+            kairosItems.forEach(item => {
+                this.translateElement(item, true);
+            });
+        }, 100);
     }
 
     setupEventListeners() {
@@ -498,55 +528,24 @@ class I18nManager {
     }
 
     toggleLanguage() {
-        // Guardar el idioma anterior para referencia
-        const previousLang = this.currentLang;
-        
         // Cambiar idioma
-        this.currentLang = this.currentLang === 'es' ? 'en' : 'es';
-        localStorage.setItem('preferredLanguage', this.currentLang);
+        const newLang = this.currentLang === 'es' ? 'en' : 'es';
         
-        // Actualizar la URL cuando se cambia el idioma
+        // Guardar en localStorage para mantenerlo entre recargas
+        localStorage.setItem('preferredLanguage', newLang);
+        
+        // Actualizar la URL y recargar
         const url = new URL(window.location.href);
-        url.searchParams.set('lang', this.currentLang);
-        window.history.replaceState({}, '', url);
-        
-        console.log(`Language changed from ${previousLang} to ${this.currentLang}`);
-        
-        // Actualizar el botón y traducir la página
-        this.updateLanguageButton();
-        
-        // Ejecutar traducción inmediata
-        this.translatePage();
-        
-        // Segunda pasada después de un retardo
-        setTimeout(() => {
-            this.translatePage();
-            
-            // Verificar y corregir específicamente la tercera experiencia (Capitole)
-            const thirdExperience = document.querySelectorAll('.timeline-item')[2];
-            if (thirdExperience) {
-                const items = thirdExperience.querySelectorAll('[data-i18n]');
-                items.forEach(item => {
-                    this.translateElement(item);
-                });
-            }
-            
-            console.log("Second translation pass completed");
-        }, 100);
-        
-        // Recargar los componentes dinámicos para asegurar que se traduzcan
-        if (window.componentsLoader) {
-            setTimeout(() => {
-                window.componentsLoader.loadExperienceData();
-                console.log("Dynamic components reloaded");
-            }, 150);
-        }
+        url.searchParams.set('lang', newLang);
+        window.location.href = url.toString();
     }
 
     updateLanguageButton() {
-        const langToggle = document.getElementById('langToggle');
-        if (langToggle) {
-            langToggle.innerHTML = `<i class="bi bi-translate"></i> ${this.currentLang === 'es' ? 'EN' : 'ES'}`;
+        const langButton = document.getElementById('langToggle');
+        if (langButton) {
+            // Si el idioma actual es español, mostrar "EN" como opción de cambio
+            // Si el idioma actual es inglés, mostrar "ES" como opción de cambio
+            langButton.innerHTML = `<i class="bi bi-translate"></i> ${this.currentLang === 'es' ? 'EN' : 'ES'}`;
         }
     }
 
@@ -614,6 +613,10 @@ class I18nManager {
         const key = element.dataset.i18n;
         if (!key) return;
         
+        if (debug) {
+            console.log(`Translating element with key: ${key}, current language: ${this.currentLang}`);
+        }
+        
         const keys = key.split('.');
         if (keys.length < 2) {
             console.warn('Invalid translation key:', key);
@@ -621,43 +624,15 @@ class I18nManager {
         }
         
         let value = translations[this.currentLang];
-        
-        // Construir el camino completo para depuración
         let fullPath = this.currentLang;
         
         for (const keyPart of keys) {
             if (!value) break;
-            
             fullPath += '.' + keyPart;
             value = value[keyPart];
             
             if (debug && !value) {
-                console.error(`Translation not found for path: ${fullPath}`);
-            }
-        }
-        
-        // Si no encontramos traducción, intentar buscar una alternativa (compatibilidad hacia atrás)
-        if (!value && key.includes('achievements')) {
-            // Intentar convertir achievements.N a detailN
-            const alternativeKey = key.replace(/achievements\.(\d+)/, "detail$1");
-            
-            if (debug) {
-                console.log(`Trying alternative key: ${alternativeKey}`);
-            }
-            
-            const altKeys = alternativeKey.split('.');
-            let altValue = translations[this.currentLang];
-            
-            for (const altKeyPart of altKeys) {
-                if (!altValue) break;
-                altValue = altValue[altKeyPart];
-            }
-            
-            if (altValue) {
-                value = altValue;
-                if (debug) {
-                    console.log(`Found alternative translation: ${value}`);
-                }
+                console.error(`Translation not found at path: ${fullPath}`);
             }
         }
         
@@ -668,10 +643,25 @@ class I18nManager {
                 element.textContent = value;
             }
             if (debug) {
-                console.log(`Translated ${key} to "${value}"`);
+                console.log(`Successfully translated ${key} to "${value}"`);
             }
-        } else if (debug) {
-            console.warn(`No translation found for ${key} in language ${this.currentLang}`);
+        } else {
+            if (debug) {
+                console.warn(`No translation found for ${key} in ${this.currentLang}`);
+                console.log('Available translations:', translations[this.currentLang]);
+            }
+            
+            // Intentar encontrar la traducción en el idioma opuesto como fallback
+            const fallbackLang = this.currentLang === 'es' ? 'en' : 'es';
+            let fallbackValue = translations[fallbackLang];
+            for (const keyPart of keys) {
+                if (!fallbackValue) break;
+                fallbackValue = fallbackValue[keyPart];
+            }
+            
+            if (fallbackValue && debug) {
+                console.log(`Found fallback translation in ${fallbackLang}: "${fallbackValue}"`);
+            }
         }
     }
 
