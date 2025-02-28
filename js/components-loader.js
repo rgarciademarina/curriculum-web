@@ -40,10 +40,21 @@ class ComponentsLoader {
 
         renderExperience(experienceData, timeline);
 
-        // Actualizar las traducciones después de cargar el componente
+        // Primera traducción inmediata
         if (window.i18nManager) {
             window.i18nManager.translatePage();
         }
+
+        // Segunda pasada después de 100ms
+        setTimeout(() => {
+            if (window.i18nManager) {
+                window.i18nManager.translatePage();
+                // Foco específico en elementos problemáticos
+                document.querySelectorAll('.timeline-item:nth-child(n+3) [data-i18n]').forEach(el => {
+                    window.i18nManager.translateElement(el, true);
+                });
+            }
+        }, 100);
     }
 }
 

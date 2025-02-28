@@ -80,13 +80,11 @@ const translations = {
                 developer: "Desarrollador"
             },
             kairos: {
-                achievements: {
-                    1: "Desarrollo de historias de usuario y toma de requisitos en equipo Scrum",
-                    2: "Automatización de pruebas frontend para iOS usando XCUITest",
-                    3: "Pruebas automatizadas de backend con Karate",
-                    4: "Testing de rendimiento utilizando JMeter",
-                    5: "Creación de casos de prueba manuales para historias de usuario y pruebas de regresión"
-                }
+                detail1: "Desarrollo de historias de usuario y toma de requisitos en equipo Scrum",
+                detail2: "Automatización de pruebas frontend para iOS usando XCUITest",
+                detail3: "Pruebas automatizadas de backend con Karate",
+                detail4: "Testing de rendimiento utilizando JMeter",
+                detail5: "Creación de casos de prueba manuales para historias de usuario y pruebas de regresión"
             },
             sopra: {
                 roles: {
@@ -282,15 +280,6 @@ const translations = {
                 qaEngineer: "Senior QA Automation Engineer",
                 tester: "Tester",
                 developer: "Developer"
-            },
-            kairos: {
-                achievements: {
-                    1: "User story development and requirements gathering in Scrum team",
-                    2: "Frontend test automation for iOS using XCUITest",
-                    3: "Backend automated testing with Karate",
-                    4: "Performance testing using JMeter",
-                    5: "Creation of manual test cases for user stories and regression testing"
-                }
             },
             steelmood: {
                 detail1: "Functional test automation for Carrefour's e-commerce platform",
@@ -509,6 +498,10 @@ class I18nManager {
     }
 
     toggleLanguage() {
+        // Guardar el idioma anterior para referencia
+        const previousLang = this.currentLang;
+        
+        // Cambiar idioma
         this.currentLang = this.currentLang === 'es' ? 'en' : 'es';
         localStorage.setItem('preferredLanguage', this.currentLang);
         
@@ -517,8 +510,37 @@ class I18nManager {
         url.searchParams.set('lang', this.currentLang);
         window.history.replaceState({}, '', url);
         
+        console.log(`Language changed from ${previousLang} to ${this.currentLang}`);
+        
+        // Actualizar el botón y traducir la página
         this.updateLanguageButton();
+        
+        // Ejecutar traducción inmediata
         this.translatePage();
+        
+        // Segunda pasada después de un retardo
+        setTimeout(() => {
+            this.translatePage();
+            
+            // Verificar y corregir específicamente la tercera experiencia (Capitole)
+            const thirdExperience = document.querySelectorAll('.timeline-item')[2];
+            if (thirdExperience) {
+                const items = thirdExperience.querySelectorAll('[data-i18n]');
+                items.forEach(item => {
+                    this.translateElement(item);
+                });
+            }
+            
+            console.log("Second translation pass completed");
+        }, 100);
+        
+        // Recargar los componentes dinámicos para asegurar que se traduzcan
+        if (window.componentsLoader) {
+            setTimeout(() => {
+                window.componentsLoader.loadExperienceData();
+                console.log("Dynamic components reloaded");
+            }, 150);
+        }
     }
 
     updateLanguageButton() {
@@ -529,22 +551,128 @@ class I18nManager {
     }
 
     translatePage() {
+        this.performTranslation();
+        
+        // Enfocarse específicamente en experiencias problemáticas
+        document.querySelectorAll('.timeline-item:nth-child(n+3) [data-i18n]').forEach(element => {
+            this.translateElement(element, true);
+        });
+
+        setTimeout(() => {
+            this.performTranslation();
+        }, 50);
+    }
+    
+    // Método que realiza la traducción real
+    performTranslation() {
+        // Primero, traducir todos los elementos con el atributo data-i18n
         document.querySelectorAll('[data-i18n]').forEach(element => {
-            const keys = element.dataset.i18n.split('.');
-            let value = translations[this.currentLang];
+            this.translateElement(element);
+        });
+
+        // Actualizar elementos del DOM que tienen periodos de fecha
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const monthsEN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const monthsES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        
+        timelineItems.forEach(item => {
+            const dateElement = item.querySelector('.timeline-date');
+            if (!dateElement) return;
             
-            for (const key of keys) {
-                if (value) value = value[key];
+            // Traducir "Present" / "Presente"
+            if (dateElement.textContent.includes(translations.es.experience.current) && this.currentLang === 'en') {
+                dateElement.textContent = dateElement.textContent.replace(translations.es.experience.current, translations.en.experience.current);
+            } else if (dateElement.textContent.includes(translations.en.experience.current) && this.currentLang === 'es') {
+                dateElement.textContent = dateElement.textContent.replace(translations.en.experience.current, translations.es.experience.current);
             }
             
-            if (value) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = value;
-                } else {
-                    element.textContent = value;
+            // Traducir meses
+            if (this.currentLang === 'es') {
+                monthsEN.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsES[index]);
+                    }
+                });
+            } else {
+                monthsES.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsEN[index]);
+                    }
+                });
+            }
+            
+            // Asegurar que todos los elementos con data-i18n dentro del item se traduzcan
+            const elementsWithI18n = item.querySelectorAll('[data-i18n]');
+            elementsWithI18n.forEach(element => {
+                this.translateElement(element);
+            });
+        });
+    }
+    
+    // Método auxiliar para traducir un elemento según su atributo data-i18n
+    translateElement(element, debug = false) {
+        const key = element.dataset.i18n;
+        if (!key) return;
+        
+        const keys = key.split('.');
+        if (keys.length < 2) {
+            console.warn('Invalid translation key:', key);
+            return;
+        }
+        
+        let value = translations[this.currentLang];
+        
+        // Construir el camino completo para depuración
+        let fullPath = this.currentLang;
+        
+        for (const keyPart of keys) {
+            if (!value) break;
+            
+            fullPath += '.' + keyPart;
+            value = value[keyPart];
+            
+            if (debug && !value) {
+                console.error(`Translation not found for path: ${fullPath}`);
+            }
+        }
+        
+        // Si no encontramos traducción, intentar buscar una alternativa (compatibilidad hacia atrás)
+        if (!value && key.includes('achievements')) {
+            // Intentar convertir achievements.N a detailN
+            const alternativeKey = key.replace(/achievements\.(\d+)/, "detail$1");
+            
+            if (debug) {
+                console.log(`Trying alternative key: ${alternativeKey}`);
+            }
+            
+            const altKeys = alternativeKey.split('.');
+            let altValue = translations[this.currentLang];
+            
+            for (const altKeyPart of altKeys) {
+                if (!altValue) break;
+                altValue = altValue[altKeyPart];
+            }
+            
+            if (altValue) {
+                value = altValue;
+                if (debug) {
+                    console.log(`Found alternative translation: ${value}`);
                 }
             }
-        });
+        }
+        
+        if (value) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = value;
+            } else {
+                element.textContent = value;
+            }
+            if (debug) {
+                console.log(`Translated ${key} to "${value}"`);
+            }
+        } else if (debug) {
+            console.warn(`No translation found for ${key} in language ${this.currentLang}`);
+        }
     }
 
     getText(key) {
