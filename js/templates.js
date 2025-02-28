@@ -9,7 +9,7 @@ export const experienceTemplate = (exp) => `
                     <span class="tech-badge">${tech}</span>
                 `).join('')}
             </div>
-            <ul class="timeline-details">
+            <ul class="timeline-achievements">
                 ${exp.details.map(detail => `
                     <li data-i18n="${detail}"></li>
                 `).join('')}
@@ -20,4 +20,9 @@ export const experienceTemplate = (exp) => `
 
 export const renderExperience = (experiences, container) => {
     container.innerHTML = experiences.map(exp => experienceTemplate(exp)).join('');
+    
+    // Aplicar traducciones inmediatamente
+    if (window.i18nManager) {
+        window.i18nManager.translatePage();
+    }
 };

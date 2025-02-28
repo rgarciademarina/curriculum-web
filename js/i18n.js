@@ -80,13 +80,18 @@ const translations = {
                 developer: "Desarrollador"
             },
             kairos: {
-                achievements: {
-                    1: "Desarrollo de historias de usuario y toma de requisitos en equipo Scrum",
-                    2: "Automatización de pruebas frontend para iOS usando XCUITest",
-                    3: "Pruebas automatizadas de backend con Karate",
-                    4: "Testing de rendimiento utilizando JMeter",
-                    5: "Creación de casos de prueba manuales para historias de usuario y pruebas de regresión"
-                }
+                detail1: "Desarrollo de historias de usuario y toma de requisitos en equipo Scrum",
+                detail2: "Automatización de pruebas frontend para iOS usando XCUITest",
+                detail3: "Pruebas automatizadas de backend con Karate",
+                detail4: "Testing de rendimiento utilizando JMeter",
+                detail5: "Creación de casos de prueba manuales para historias de usuario y pruebas de regresión"
+            },
+            steelmood: {
+                detail1: "Automatización funcional para la plataforma de comercio electrónico de Carrefour",
+                detail2: "Desarrollo de scripts de prueba utilizando Java, Selenium y Rest Assured",
+                detail3: "Implementación de la metodología BDD con Cucumber",
+                detail4: "Integración de pruebas automatizadas en la cadena de CI/CD",
+                detail5: "Creación y mantenimiento de documentación de pruebas en Jira"
             },
             sopra: {
                 roles: {
@@ -284,13 +289,80 @@ const translations = {
                 developer: "Developer"
             },
             kairos: {
-                achievements: {
-                    1: "User story development and requirements gathering in Scrum team",
-                    2: "Frontend test automation for iOS using XCUITest",
-                    3: "Backend automated testing with Karate",
-                    4: "Performance testing using JMeter",
-                    5: "Creation of manual test cases for user stories and regression testing"
-                }
+                detail1: "Development of user stories and requirements gathering in Scrum team",
+                detail2: "Frontend test automation for iOS using XCUITest",
+                detail3: "Backend automated testing with Karate",
+                detail4: "Performance testing using JMeter",
+                detail5: "Creation of manual test cases for user stories and regression testing"
+            },
+            steelmood: {
+                detail1: "Functional test automation for Carrefour's e-commerce platform",
+                detail2: "Development of test scripts using Java, Selenium and Rest Assured",
+                detail3: "Implementation of BDD methodology with Cucumber",
+                detail4: "Integration of automated tests in CI/CD pipeline",
+                detail5: "Creation and maintenance of test documentation in Jira"
+            },
+            tsystems: {
+                detail1: "Functional testing for Allianz insurance applications",
+                detail2: "Test planning and execution using Silk Central",
+                detail3: "Defect reporting and tracking through the development lifecycle"
+            },
+            alalza: {
+                detail1: "Technical support for roaming services",
+                detail2: "Troubleshooting of VoIP and LTE connectivity issues",
+                detail3: "Network configuration and monitoring",
+                detail4: "Customer support for international roaming services",
+                detail5: "Documentation of technical procedures",
+                detail6: "Collaboration with international carriers for service integration"
+            },
+            capitole: {
+                detail1: "Creation and maintenance of automation framework",
+                detail2: "Systems integration testing",
+                detail3: "Quality control and test documentation"
+            },
+            zemsania: {
+                detail1: "Test automation with Selenium and Cucumber using Java with Maven",
+                detail2: "SOAP web services testing with SoapUI",
+                detail3: "Design and execution of manual and automated test plans",
+                detail4: "Test centralization using TestLink"
+            },
+            alten: {
+                detail1: "Development of hybrid Android and iOS applications with Ionic",
+                detail2: "Test plan development using BDD",
+                detail3: "Automation with Selenium, Appium and Specflow in C#",
+                detail4: "Cloud testing with Perfecto Mobile",
+                detail5: "Test management with TFS"
+            },
+            urende: {
+                detail1: "Sale of computers, consumer electronics and new technologies",
+                detail2: "Sale of telephone and internet services, fixed and mobile",
+                detail3: "Documentation management for credits through SRS Santander group",
+                detail4: "Organization of transport routes",
+                detail5: "Implementation of material entries"
+            },
+            adecom: {
+                detail1: "Installation of ATMs for Caja Rural throughout Ciudad Real province",
+                detail2: "Maintenance of dispensers, recyclers, PR2 printers and computers for Getronics"
+            },
+            garcia: {
+                detail1: "Monitoring, management and repair of Siemens automatic storage system (26,000 pallets)",
+                detail2: "Maintenance and cleaning of stacker cranes",
+                detail3: "Support in production line when needed"
+            },
+            setico: {
+                detail1: "Installation and maintenance of office equipment (analog and digital photocopiers, faxes, printers)",
+                detail2: "Cleaning and setup of second-hand photocopiers for resale"
+            },
+            lanza: {
+                detail1: "Layout of newspaper pages",
+                detail2: "Maintenance and updating of Web publication"
+            },
+            icaldia: {
+                detail1: "Installation and maintenance of computer networks",
+                detail2: "Implementation of telephone systems"
+            },
+            torreon: {
+                detail1: "Implementation, management and maintenance of the institute's computer network"
             },
             sopra: {
                 roles: {
@@ -411,25 +483,41 @@ const translations = {
 
 class I18nManager {
     constructor() {
-        // Obtener el idioma de la URL si existe
+        // Obtener el idioma de la URL o localStorage
         const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
+        const urlLang = urlParams.get('lang');
+        const storedLang = localStorage.getItem('preferredLanguage');
         
-        // Usar el parámetro de la URL si es válido, si no usar localStorage o español por defecto
-        if (langParam && ['es', 'en'].includes(langParam.toLowerCase())) {
-            this.currentLang = langParam.toLowerCase();
-            localStorage.setItem('preferredLanguage', this.currentLang);
-        } else {
-            this.currentLang = localStorage.getItem('preferredLanguage') || 'es';
-        }
+        // Establecer el idioma inicial
+        this.currentLang = urlLang || storedLang || 'es';
         
-        this.init();
-    }
+        // Guardar en localStorage
+        localStorage.setItem('preferredLanguage', this.currentLang);
+        
+        // Actualizar la URL
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', this.currentLang);
+        window.history.replaceState({}, '', url);
 
-    init() {
+        // Actualizar el botón de idioma
         this.updateLanguageButton();
+        
+        // Aplicar traducciones iniciales con debug
+        console.log('Initializing with language:', this.currentLang);
         this.translatePage();
-        this.setupEventListeners();
+        
+        // Segunda pasada después de un breve retraso
+        setTimeout(() => {
+            console.log('Second translation pass...');
+            this.translatePage();
+            
+            // Verificar específicamente las traducciones de Kairos
+            const kairosItems = document.querySelectorAll('[data-i18n^="experience.kairos"]');
+            console.log('Found Kairos items:', kairosItems.length);
+            kairosItems.forEach(item => {
+                this.translateElement(item, true);
+            });
+        }, 100);
     }
 
     setupEventListeners() {
@@ -440,42 +528,141 @@ class I18nManager {
     }
 
     toggleLanguage() {
-        this.currentLang = this.currentLang === 'es' ? 'en' : 'es';
-        localStorage.setItem('preferredLanguage', this.currentLang);
+        // Cambiar idioma
+        const newLang = this.currentLang === 'es' ? 'en' : 'es';
         
-        // Actualizar la URL cuando se cambia el idioma
+        // Guardar en localStorage para mantenerlo entre recargas
+        localStorage.setItem('preferredLanguage', newLang);
+        
+        // Actualizar la URL y recargar
         const url = new URL(window.location.href);
-        url.searchParams.set('lang', this.currentLang);
-        window.history.replaceState({}, '', url);
-        
-        this.updateLanguageButton();
-        this.translatePage();
+        url.searchParams.set('lang', newLang);
+        window.location.href = url.toString();
     }
 
     updateLanguageButton() {
-        const langToggle = document.getElementById('langToggle');
-        if (langToggle) {
-            langToggle.innerHTML = `<i class="bi bi-translate"></i> ${this.currentLang === 'es' ? 'EN' : 'ES'}`;
+        const langButton = document.getElementById('langToggle');
+        if (langButton) {
+            // Si el idioma actual es español, mostrar "EN" como opción de cambio
+            // Si el idioma actual es inglés, mostrar "ES" como opción de cambio
+            langButton.innerHTML = `<i class="bi bi-translate"></i> ${this.currentLang === 'es' ? 'EN' : 'ES'}`;
         }
     }
 
     translatePage() {
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const keys = element.dataset.i18n.split('.');
-            let value = translations[this.currentLang];
-            
-            for (const key of keys) {
-                if (value) value = value[key];
-            }
-            
-            if (value) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = value;
-                } else {
-                    element.textContent = value;
-                }
-            }
+        this.performTranslation();
+        
+        // Enfocarse específicamente en experiencias problemáticas
+        document.querySelectorAll('.timeline-item:nth-child(n+3) [data-i18n]').forEach(element => {
+            this.translateElement(element, true);
         });
+
+        setTimeout(() => {
+            this.performTranslation();
+        }, 50);
+    }
+    
+    // Método que realiza la traducción real
+    performTranslation() {
+        // Primero, traducir todos los elementos con el atributo data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            this.translateElement(element);
+        });
+
+        // Actualizar elementos del DOM que tienen periodos de fecha
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const monthsEN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const monthsES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        
+        timelineItems.forEach(item => {
+            const dateElement = item.querySelector('.timeline-date');
+            if (!dateElement) return;
+            
+            // Traducir "Present" / "Presente"
+            if (dateElement.textContent.includes(translations.es.experience.current) && this.currentLang === 'en') {
+                dateElement.textContent = dateElement.textContent.replace(translations.es.experience.current, translations.en.experience.current);
+            } else if (dateElement.textContent.includes(translations.en.experience.current) && this.currentLang === 'es') {
+                dateElement.textContent = dateElement.textContent.replace(translations.en.experience.current, translations.es.experience.current);
+            }
+            
+            // Traducir meses
+            if (this.currentLang === 'es') {
+                monthsEN.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsES[index]);
+                    }
+                });
+            } else {
+                monthsES.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsEN[index]);
+                    }
+                });
+            }
+            
+            // Asegurar que todos los elementos con data-i18n dentro del item se traduzcan
+            const elementsWithI18n = item.querySelectorAll('[data-i18n]');
+            elementsWithI18n.forEach(element => {
+                this.translateElement(element);
+            });
+        });
+    }
+    
+    // Método auxiliar para traducir un elemento según su atributo data-i18n
+    translateElement(element, debug = false) {
+        const key = element.dataset.i18n;
+        if (!key) return;
+        
+        if (debug) {
+            console.log(`Translating element with key: ${key}, current language: ${this.currentLang}`);
+        }
+        
+        const keys = key.split('.');
+        if (keys.length < 2) {
+            console.warn('Invalid translation key:', key);
+            return;
+        }
+        
+        let value = translations[this.currentLang];
+        let fullPath = this.currentLang;
+        
+        for (const keyPart of keys) {
+            if (!value) break;
+            fullPath += '.' + keyPart;
+            value = value[keyPart];
+            
+            if (debug && !value) {
+                console.error(`Translation not found at path: ${fullPath}`);
+            }
+        }
+        
+        if (value) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = value;
+            } else {
+                element.textContent = value;
+            }
+            if (debug) {
+                console.log(`Successfully translated ${key} to "${value}"`);
+            }
+        } else {
+            if (debug) {
+                console.warn(`No translation found for ${key} in ${this.currentLang}`);
+                console.log('Available translations:', translations[this.currentLang]);
+            }
+            
+            // Intentar encontrar la traducción en el idioma opuesto como fallback
+            const fallbackLang = this.currentLang === 'es' ? 'en' : 'es';
+            let fallbackValue = translations[fallbackLang];
+            for (const keyPart of keys) {
+                if (!fallbackValue) break;
+                fallbackValue = fallbackValue[keyPart];
+            }
+            
+            if (fallbackValue && debug) {
+                console.log(`Found fallback translation in ${fallbackLang}: "${fallbackValue}"`);
+            }
+        }
     }
 
     getText(key) {

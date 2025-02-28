@@ -8,11 +8,12 @@ export const experienceData = [
             "experience.kairos.detail1",
             "experience.kairos.detail2",
             "experience.kairos.detail3",
-            "experience.kairos.detail4"
+            "experience.kairos.detail4",
+            "experience.kairos.detail5"
         ]
     },
     {
-        period: "Agosto 2016 - Marzo 2017",
+        period: "August 2016 - March 2017",
         title: "QA Engineer",
         company: "Steelmood for Carrefour",
         techStack: ["Java", "Selenium", "Rest Assured", "Cucumber", "Jira"],
@@ -25,7 +26,7 @@ export const experienceData = [
         ]
     },
     {
-        period: "Abril 2015 - Agosto 2016",
+        period: "April 2015 - August 2016",
         title: "Tester",
         company: "T-Systems for Allianz",
         techStack: ["Silk Central", "Test Planning", "Functional Testing"],
@@ -36,7 +37,7 @@ export const experienceData = [
         ]
     },
     {
-        period: "Enero 2015 - Abril 2015",
+        period: "January 2015 - April 2015",
         title: "Técnico de Roaming",
         company: "Alalza",
         techStack: ["Roaming", "VoIP", "LTE", "Network"],

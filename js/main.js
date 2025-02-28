@@ -268,6 +268,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Polyfill para NodeList.forEach en IE
+if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
+// Función de depuración para inspeccionar el estado de las traducciones
+function debugTranslations() {
+    // Esperar a que el DOM esté listo
+    setTimeout(() => {
+        console.log("=== DEBUG TRANSLATIONS ===");
+        console.log("Current Language:", window.i18nManager.currentLang);
+        
+        // Inspeccionar la tercera experiencia
+        const thirdExperience = document.querySelectorAll('.timeline-item')[2];
+        if (thirdExperience) {
+            console.log("Third Experience Found:", thirdExperience);
+            
+            // Comprobar sus elementos de traducción
+            const items = thirdExperience.querySelectorAll('[data-i18n]');
+            console.log("Translation Items in Third Experience:", items.length);
+            
+            items.forEach((item, index) => {
+                const key = item.getAttribute('data-i18n');
+                console.log(`Item ${index}:`, {
+                    key: key,
+                    text: item.textContent,
+                    langPath: window.i18nManager.currentLang + '.' + key.replace(/\./g, '.')
+                });
+            });
+        } else {
+            console.log("Third Experience Not Found");
+        }
+        
+        console.log("=== END DEBUG ===");
+    }, 500);
+}
+
+// Setup language buttons
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.i18nManager) {
+        // Configurar el idioma según la URL o el almacenamiento local
+        window.i18nManager.initialize();
+        
+        // Evento para cambiar el idioma
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', function() {
+                window.i18nManager.toggleLanguage();
+            });
+        }
+    }
+});
+
 // Image overlay functionality
 document.addEventListener('DOMContentLoaded', function() {
     const profileImage = document.getElementById('profileImage');
