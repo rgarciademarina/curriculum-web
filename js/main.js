@@ -17,12 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            
+            // Si el href es solo "#", no intentamos seleccionar ningún elemento
+            if (href === "#") {
+                return;
+            }
+            
+            const target = document.querySelector(href);
             if (target) {
                 const headerOffset = 70;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
@@ -314,8 +320,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Evento para cambiar el idioma
         const langToggle = document.getElementById('langToggle');
         if (langToggle) {
-            langToggle.addEventListener('click', function() {
-                window.i18nManager.toggleLanguage();
+            langToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.i18nManager.toggleLanguage(e);
             });
         }
     }

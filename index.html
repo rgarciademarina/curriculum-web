@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
     <title>Raúl García de Marina - Portfolio</title>
     
     <!-- Primary Meta Tags -->
@@ -47,8 +47,9 @@
                     <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contacto</a></li>
                     <li class="nav-item ms-2">
                         <div class="language-selector">
-                            <a href="#" onclick="toggleLanguage(); return false;" class="btn btn-outline-light btn-sm" id="langToggle">
-                                <i class="bi bi-translate"></i> EN
+                            <a href="#" class="btn btn-outline-light btn-sm" id="langToggle">
+                                <i class="bi bi-translate"></i> <span id="currentLang">ES</span>
+                                <i class="bi bi-chevron-down"></i>
                             </a>
                         </div>
                     </li>
@@ -862,20 +863,6 @@
             duration: 1000,
             once: true
         });
-        
-        // Función global para cambiar de idioma
-        function toggleLanguage() {
-            const currentLang = localStorage.getItem('preferredLanguage') || 'es';
-            const newLang = currentLang === 'es' ? 'en' : 'es';
-            
-            // Guardar en localStorage
-            localStorage.setItem('preferredLanguage', newLang);
-            
-            // Recargar la página con el nuevo parámetro de idioma
-            const url = new URL(window.location.href);
-            url.searchParams.set('lang', newLang);
-            window.location.href = url.toString();
-        }
     </script>
 </body>
 </html>

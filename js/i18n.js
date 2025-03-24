@@ -478,6 +478,277 @@ const translations = {
             scan: "Scan my contact card",
             viewProfile: "View full profile"
         }
+    },
+    fr: {
+        nav: {
+            home: "Accueil",
+            about: "À propos",
+            skills: "Compétences",
+            experience: "Expérience",
+            education: "Formation",
+            featured: "Projets",
+            contact: "Contact"
+        },
+        hero: {
+            title: "Ingénieur Senior en Automatisation QA",
+            description: "Professionnel avec plus de 24 ans d'expérience dans le secteur technologique, spécialisé en QA et tests automatisés depuis plus de 8 ans. Ma carrière va des rôles techniques à la transformation de la qualité logicielle grâce à l'automatisation intelligente et à l'innovation continue.",
+            downloadCV: "Télécharger CV",
+            contact: "Contactez-moi"
+        },
+        about: {
+            title: "À Propos",
+            innovation: {
+                title: "Innovation et Technologie",
+                description: "En tant qu'Ingénieur QA Senior spécialisé en Automatisation, je combine ma passion pour la technologie avec un engagement inébranlable envers la qualité logicielle. Ma récente immersion dans le domaine de l'Intelligence Artificielle grâce à mon master m'a permis d'élargir mes horizons et d'appliquer ces technologies émergentes pour améliorer les processus de test."
+            },
+            learning: {
+                title: "Apprentissage Continu",
+                description: "Dans un domaine aussi dynamique que le développement logiciel, je crois fermement en l'importance de l'apprentissage continu. Mon expérience avec la réalité virtuelle et les technologies émergentes reflète non seulement ma curiosité technologique mais aussi ma capacité à m'adapter et à évoluer avec l'industrie."
+            },
+            balance: {
+                title: "Équilibre et Valeurs",
+                description: "Au-delà du code, je défends l'équilibre vie professionnelle-vie privée et le respect de notre environnement. Mon amour pour les animaux et la nature, reflété dans la vie avec mes deux chats, me donne une perspective unique sur la résolution de problèmes et le travail d'équipe."
+            },
+            explorer: {
+                title: "Esprit d'Explorateur",
+                description: "Ma fascination pour explorer des lieux historiques reflète ma curiosité innée et mon désir d'apprendre. Cette même passion pour la découverte me motive dans ma carrière professionnelle, où chaque projet est une opportunité d'explorer de nouvelles technologies et méthodologies."
+            },
+            horizons: {
+                title: "Nouveaux Horizons",
+                description: "Comme la navigation vers de nouveaux horizons, mon parcours professionnel est marqué par la recherche constante de croissance et d'évolution. Chaque projet est une opportunité d'élargir les frontières et de découvrir de nouvelles façons d'apporter de la valeur grâce à l'innovation en QA."
+            },
+            values: {
+                title: "Valeurs et Loyauté",
+                description: "Ma relation avec mes chats m'a appris de précieuses leçons sur la loyauté, la simplicité et l'authenticité. Ces valeurs se reflètent dans mon éthique professionnelle, où je privilégie l'honnêteté dans les relations de travail et la recherche de solutions efficaces sans complications inutiles.",
+                teamwork: "Travail d'Équipe",
+                empathy: "Empathie",
+                responsibility: "Responsabilité",
+                curiosity: "Curiosité",
+                exploration: "Exploration",
+                adaptability: "Adaptabilité",
+                growth: "Croissance",
+                vision: "Vision",
+                loyalty: "Loyauté",
+                simplicity: "Simplicité",
+                authenticity: "Authenticité"
+            },
+            tech: {
+                newTech: "Nouvelles Technologies",
+                vrAr: "VR/AR",
+                innovation: "Innovation",
+                teamwork: "Travail d'Équipe",
+                empathy: "Empathie",
+                responsibility: "Responsabilité",
+                curiosity: "Curiosité",
+                exploration: "Exploration",
+                adaptability: "Adaptabilité",
+                growth: "Croissance",
+                vision: "Vision",
+                loyalty: "Loyauté",
+                simplicity: "Simplicité",
+                authenticity: "Authenticité"
+            }
+        },
+        experience: {
+            title: "Expérience Professionnelle",
+            current: "Présent",
+            showMore: "Voir plus",
+            showLess: "Voir moins",
+            roles: {
+                qaEngineer: "Ingénieur Senior en Automatisation QA",
+                tester: "Testeur",
+                developer: "Développeur"
+            },
+            kairos: {
+                detail1: "Développement de user stories et recueil des exigences en équipe Scrum",
+                detail2: "Automatisation des tests frontend pour iOS avec XCUITest",
+                detail3: "Tests automatisés backend avec Karate",
+                detail4: "Tests de performance avec JMeter",
+                detail5: "Création de cas de test manuels pour les user stories et tests de régression"
+            },
+            steelmood: {
+                detail1: "Automatisation fonctionnelle pour la plateforme e-commerce de Carrefour",
+                detail2: "Développement de scripts de test avec Java, Selenium et Rest Assured",
+                detail3: "Implémentation de la méthodologie BDD avec Cucumber",
+                detail4: "Intégration des tests automatisés dans la chaîne CI/CD",
+                detail5: "Création et maintenance de la documentation des tests dans Jira"
+            },
+            sopra: {
+                roles: {
+                    qe: "Équipe Quality Experience (2020-2021)",
+                    diy: "Équipe Do It Yourself (2019-2020)"
+                },
+                qe: {
+                    achievements: {
+                        1: "Maintenance et améliorations du framework (Node.js, Cucumber, Appium)",
+                        2: "Revue des Pull Requests de tests",
+                        3: "Support pour la création et résolution de problèmes dans les tests e2e"
+                    }
+                },
+                diy: {
+                    achievements: {
+                        1: "QA Tester en équipe Scrum avec TDD",
+                        2: "Automatisation avec Cucumber et Selenium",
+                        3: "Création de plans de test"
+                    }
+                }
+            },
+            tsystems: {
+                detail1: "Tests fonctionnels pour les applications d'assurance Allianz",
+                detail2: "Planification et exécution des tests avec Silk Central",
+                detail3: "Signalement et suivi des défauts tout au long du cycle de développement"
+            },
+            alalza: {
+                detail1: "Support technique pour les services d'itinérance",
+                detail2: "Dépannage des problèmes de connectivité VoIP et LTE",
+                detail3: "Configuration et surveillance du réseau",
+                detail4: "Support client pour les services d'itinérance internationale",
+                detail5: "Documentation des procédures techniques",
+                detail6: "Collaboration avec les opérateurs internationaux pour l'intégration des services"
+            },
+            capitole: {
+                detail1: "Création et maintenance du framework d'automatisation",
+                detail2: "Tests d'intégration des systèmes",
+                detail3: "Contrôle qualité et documentation des tests"
+            },
+            zemsania: {
+                detail1: "Automatisation des tests avec Selenium et Cucumber en Java avec Maven",
+                detail2: "Tests des services web SOAP avec SoapUI",
+                detail3: "Conception et exécution de plans de test manuels et automatisés",
+                detail4: "Centralisation des tests avec TestLink"
+            },
+            alten: {
+                detail1: "Développement d'applications hybrides Android et iOS avec Ionic",
+                detail2: "Développement de plans de test utilisant BDD",
+                detail3: "Automatisation avec Selenium, Appium et Specflow en C#",
+                detail4: "Tests dans le cloud avec Perfecto Mobile",
+                detail5: "Gestion des tests avec TFS"
+            },
+            urende: {
+                detail1: "Vente d'ordinateurs, d'électronique grand public et de nouvelles technologies",
+                detail2: "Vente de services téléphoniques et Internet, fixes et mobiles",
+                detail3: "Gestion de la documentation pour les crédits via le groupe SRS Santander",
+                detail4: "Organisation des itinéraires de transport",
+                detail5: "Mise en œuvre des entrées de matériel"
+            },
+            adecom: {
+                detail1: "Installation de distributeurs automatiques de billets pour Caja Rural dans toute la province de Ciudad Real",
+                detail2: "Maintenance des distributeurs, recycleurs, imprimantes PR2 et ordinateurs pour Getronics"
+            },
+            garcia: {
+                detail1: "Surveillance, gestion et réparation du système de stockage automatique Siemens (26 000 palettes)",
+                detail2: "Maintenance et nettoyage des transstockeurs",
+                detail3: "Support sur la ligne de production si nécessaire"
+            },
+            setico: {
+                detail1: "Installation et maintenance d'équipements de bureau (photocopieurs analogiques et numériques, fax, imprimantes)",
+                detail2: "Nettoyage et configuration de photocopieurs d'occasion pour la revente"
+            },
+            lanza: {
+                detail1: "Mise en page des pages de journal",
+                detail2: "Maintenance et mise à jour de la publication Web"
+            },
+            icaldia: {
+                detail1: "Installation et maintenance de réseaux informatiques",
+                detail2: "Mise en œuvre de systèmes téléphoniques"
+            },
+            torreon: {
+                detail1: "Mise en œuvre, gestion et maintenance du réseau informatique de l'institut"
+            }
+        },
+        education: {
+            title: "Formation",
+            formal: "Éducation Formelle",
+            certifications: "Certifications Professionnelles",
+            specialized: "Formation Spécialisée",
+            degrees: {
+                aiMaster: {
+                    title: "Master en Ingénierie IA",
+                    institution: "Lidr.co"
+                },
+                telecommunications: {
+                    title: "Diplôme en Systèmes de Télécommunication et Informatique"
+                }
+            },
+            certs: {
+                istqb: {
+                    title: "Testeur Certifié ISTQB",
+                    level: "Niveau Fondation (CTFL)"
+                },
+                oracle: {
+                    title: "Oracle Certified Professional",
+                    level: "Java SE 6 Programmer"
+                }
+            },
+            courses: {
+                selenium: {
+                    title: "Selenium WebDriver avec Java"
+                },
+                spring: {
+                    title: "Développement Web avec Spring MVC/Rest",
+                    subtitle: "Web Flow et JPA"
+                },
+                patterns: {
+                    title: "Catalogue de Patrons Java OpenSource"
+                }
+            },
+            tech: {
+                ai: "Intelligence Artificielle",
+                ml: "Machine Learning",
+                dataScience: "Data Science",
+                telecom: "Télécommunications",
+                systems: "Systèmes",
+                computing: "Informatique",
+                testing: "Test",
+                qa: "QA",
+                java: "Java",
+                automation: "Automatisation",
+                spring: "Spring",
+                rest: "REST",
+                jpa: "JPA",
+                patterns: "Patrons",
+                opensource: "OpenSource"
+            }
+        },
+        contact: {
+            title: "Contact",
+            info: "Informations de Contact",
+            form: {
+                name: "Nom",
+                email: "Email",
+                company: "Entreprise",
+                subject: "Sujet",
+                message: "Message",
+                send: "Envoyer",
+                verification: "Vérification : Combien font 2 + 3 ?"
+            }
+        },
+        footer: {
+            rights: "Tous droits réservés."
+        },
+        featured: {
+            title: "Projets Phares",
+            aiAssistant: {
+                title: "Assistant IA pour User Stories",
+                description: "Développement d'un outil innovant utilisant l'Intelligence Artificielle pour aider à la création et l'amélioration des user stories, facilitant le processus de développement agile."
+            },
+            curriculumWeb: {
+                title: "CV Web Interactif",
+                description: "Vous aimez ce CV web ? Jetez un œil au code source. Développé avec HTML5, CSS3 et JavaScript, il intègre des fonctionnalités modernes comme le mode sombre, l'internationalisation et un design responsive."
+            },
+            viewCode: "Voir le Code",
+            playGame: "Jouer à Minotaur Maze"
+        },
+        skills: {
+            title: "Spécialités",
+            automation: "Automatisation",
+            languages: "Langages",
+            innovation: "Innovation"
+        },
+        qr: {
+            scan: "Scannez ma carte de visite",
+            viewProfile: "Voir le profil complet"
+        }
     }
 };
 
@@ -502,6 +773,9 @@ class I18nManager {
         // Actualizar el botón de idioma
         this.updateLanguageButton();
         
+        // Configurar los event listeners
+        this.setupEventListeners();
+        
         // Aplicar traducciones iniciales con debug
         console.log('Initializing with language:', this.currentLang);
         this.translatePage();
@@ -523,29 +797,124 @@ class I18nManager {
     setupEventListeners() {
         const langToggle = document.getElementById('langToggle');
         if (langToggle) {
-            langToggle.addEventListener('click', () => this.toggleLanguage());
+            langToggle.addEventListener('click', (e) => this.toggleLanguage(e));
         }
     }
 
-    toggleLanguage() {
-        // Cambiar idioma
-        const newLang = this.currentLang === 'es' ? 'en' : 'es';
+    toggleLanguage(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         
-        // Guardar en localStorage para mantenerlo entre recargas
-        localStorage.setItem('preferredLanguage', newLang);
+        // Si ya hay un menú abierto, cerrarlo
+        const existingMenu = document.querySelector('.lang-menu');
+        if (existingMenu) {
+            existingMenu.remove();
+            return;
+        }
+
+        // Crear menú desplegable
+        const langMenu = document.createElement('div');
+        langMenu.className = 'lang-menu';
+        langMenu.setAttribute('aria-expanded', 'true');
+        langMenu.innerHTML = `
+            <button class="lang-option ${this.currentLang === 'es' ? 'active' : ''}" data-lang="es" aria-label="Español">
+                ES
+            </button>
+            <button class="lang-option ${this.currentLang === 'en' ? 'active' : ''}" data-lang="en" aria-label="English">
+                EN
+            </button>
+            <button class="lang-option ${this.currentLang === 'fr' ? 'active' : ''}" data-lang="fr" aria-label="Français">
+                FR
+            </button>
+        `;
+
+        // Posicionar menú debajo del botón
+        const langButton = document.getElementById('langToggle');
+        langButton.style.position = 'relative';
+        langMenu.style.position = 'absolute';
+        langMenu.style.top = '100%';
+        langMenu.style.right = '0';
+        langMenu.style.zIndex = '1000';
+        langMenu.style.backgroundColor = '#343a40';
+        langMenu.style.borderRadius = '4px';
+        langMenu.style.padding = '8px';
+        langMenu.style.marginTop = '5px';
+        langMenu.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
         
-        // Actualizar la URL y recargar
-        const url = new URL(window.location.href);
-        url.searchParams.set('lang', newLang);
-        window.location.href = url.toString();
+        // Estilizar botones del menú
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            .lang-menu .lang-option {
+                display: block;
+                width: 100%;
+                padding: 6px 12px;
+                margin-bottom: 4px;
+                background: none;
+                border: none;
+                color: white;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 3px;
+                transition: background-color 0.2s;
+            }
+            .lang-menu .lang-option:last-child {
+                margin-bottom: 0;
+            }
+            .lang-menu .lang-option:hover {
+                background-color: rgba(255,255,255,0.1);
+            }
+            .lang-menu .lang-option.active {
+                background-color: rgba(255,255,255,0.2);
+                font-weight: bold;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+        
+        langButton.appendChild(langMenu);
+
+        // Manejar selección de idioma
+        langMenu.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const newLang = option.dataset.lang;
+                if (newLang !== this.currentLang) {
+                    this.currentLang = newLang;
+                    localStorage.setItem('preferredLanguage', newLang);
+                    
+                    // Actualizar URL y recargar
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('lang', newLang);
+                    window.location.href = url.toString();
+                }
+                langMenu.remove();
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        const closeMenu = (e) => {
+            if (!langButton.contains(e.target)) {
+                langMenu.remove();
+                document.removeEventListener('click', closeMenu);
+            }
+        };
+        
+        setTimeout(() => {
+            document.addEventListener('click', closeMenu);
+        }, 0);
     }
 
     updateLanguageButton() {
         const langButton = document.getElementById('langToggle');
         if (langButton) {
-            // Si el idioma actual es español, mostrar "EN" como opción de cambio
-            // Si el idioma actual es inglés, mostrar "ES" como opción de cambio
-            langButton.innerHTML = `<i class="bi bi-translate"></i> ${this.currentLang === 'es' ? 'EN' : 'ES'}`;
+            // Mostrar idioma actual
+            const langText = { es: 'ES', en: 'EN', fr: 'FR' };
+            langButton.innerHTML = `
+                <i class="bi bi-translate"></i> ${langText[this.currentLang]}
+                <i class="bi bi-chevron-down"></i>
+            `;
+            langButton.setAttribute('aria-label', `Idioma actual: ${this.currentLang}`);
         }
     }
 
@@ -573,16 +942,31 @@ class I18nManager {
         const timelineItems = document.querySelectorAll('.timeline-item');
         const monthsEN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const monthsES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const monthsFR = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
         
         timelineItems.forEach(item => {
             const dateElement = item.querySelector('.timeline-date');
             if (!dateElement) return;
             
-            // Traducir "Present" / "Presente"
-            if (dateElement.textContent.includes(translations.es.experience.current) && this.currentLang === 'en') {
-                dateElement.textContent = dateElement.textContent.replace(translations.es.experience.current, translations.en.experience.current);
-            } else if (dateElement.textContent.includes(translations.en.experience.current) && this.currentLang === 'es') {
-                dateElement.textContent = dateElement.textContent.replace(translations.en.experience.current, translations.es.experience.current);
+            // Traducir "Present" / "Presente" / "Présent"
+            if (this.currentLang === 'es') {
+                if (dateElement.textContent.includes(translations.en.experience.current)) {
+                    dateElement.textContent = dateElement.textContent.replace(translations.en.experience.current, translations.es.experience.current);
+                } else if (dateElement.textContent.includes(translations.fr.experience.current)) {
+                    dateElement.textContent = dateElement.textContent.replace(translations.fr.experience.current, translations.es.experience.current);
+                }
+            } else if (this.currentLang === 'en') {
+                if (dateElement.textContent.includes(translations.es.experience.current)) {
+                    dateElement.textContent = dateElement.textContent.replace(translations.es.experience.current, translations.en.experience.current);
+                } else if (dateElement.textContent.includes(translations.fr.experience.current)) {
+                    dateElement.textContent = dateElement.textContent.replace(translations.fr.experience.current, translations.en.experience.current);
+                }
+            } else if (this.currentLang === 'fr') {
+                if (dateElement.textContent.includes(translations.es.experience.current)) {
+                    dateElement.textContent = dateElement.textContent.replace(translations.es.experience.current, translations.fr.experience.current);
+                } else if (dateElement.textContent.includes(translations.en.experience.current)) {
+                    dateElement.textContent = dateElement.textContent.replace(translations.en.experience.current, translations.fr.experience.current);
+                }
             }
             
             // Traducir meses
@@ -592,10 +976,31 @@ class I18nManager {
                         dateElement.textContent = dateElement.textContent.replace(month, monthsES[index]);
                     }
                 });
-            } else {
+                monthsFR.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsES[index]);
+                    }
+                });
+            } else if (this.currentLang === 'en') {
                 monthsES.forEach((month, index) => {
                     if (dateElement.textContent.includes(month)) {
                         dateElement.textContent = dateElement.textContent.replace(month, monthsEN[index]);
+                    }
+                });
+                monthsFR.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsEN[index]);
+                    }
+                });
+            } else if (this.currentLang === 'fr') {
+                monthsES.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsFR[index]);
+                    }
+                });
+                monthsEN.forEach((month, index) => {
+                    if (dateElement.textContent.includes(month)) {
+                        dateElement.textContent = dateElement.textContent.replace(month, monthsFR[index]);
                     }
                 });
             }
